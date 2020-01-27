@@ -63,6 +63,10 @@ body {
     padding-bottom: 20px;
 }
 
+.copyright-section .copyright-container {
+    padding-bottom: 0;
+}
+
 .copyright-section h4 {
     color: #fff;
     font-size: 15px;
@@ -94,4 +98,24 @@ body {
 .copyright-section .footer-copyright a:visited {
     text-decoration: none;
     color: #9e9e9e;
+}
+
+#mc-login, #mc-register {
+    top: 47px;
+    display: block;
+    /*height: 400px;*/
+    width: 448px;
+    z-index: 1000000;
+    overflow: auto;
+}
+
+#mc-login .mc-dialog-banner,
+#mc-register .mc-dialog-banner{
+    height: 200px;
+}
+
+#mc-login .login-form,
+#mc-register .login-form {
+    padding-left: 30px;
+    padding-right: 30px;
 }
