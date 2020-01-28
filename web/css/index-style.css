@@ -2,6 +2,11 @@ body {
     font-family: Roboto Mono, Roboto, Noto, Helvetica, Arial, sans-serif;
 }
 
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 .mc-drawer {
     background-color: #f5f5f5;
     /*z-index: 100;*/

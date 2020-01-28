@@ -29,7 +29,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean insertUser(User user) {
-        return false;
+        if (!this.getExist(user.getUsername())) {
+            userMapper.insertUser(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -39,6 +44,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean getExist(String username) {
-        return false;
+        return userMapper.getUserByUsername(username) != null;
     }
 }
