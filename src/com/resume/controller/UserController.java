@@ -12,7 +12,7 @@ import java.util.Map;
  * @date 2020/1/28
  */
 @Controller
-@RequestMapping(value = "usercotroller")
+@RequestMapping(value = "user")
 public class UserController {
     UserService userService;
 
@@ -33,13 +33,13 @@ public class UserController {
      * @param map 存储attribute
      * @return 跳转页面
      */
-    @RequestMapping(value = "/getuser")
+    @RequestMapping(value = "getuser")
     public String getUserByUsername(Map<String, Object> map) {
         System.out.println("this.userService = " + this.userService);
         User user = userService.getUserByUsername("danny");
         System.out.println("user = " + user);
         map.put("user", user);
 
-        return "success";
+        return "/views/success.jsp";
     }
 }

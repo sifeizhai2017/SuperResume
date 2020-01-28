@@ -16,8 +16,9 @@
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"/>
-        <property name="suffix" value=".jsp"/>
+        <!-- 配了有问题，索性不配了 -->
+<!--        <property name="prefix" value="/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
     </bean>
 
 </beans>
