@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="com.resume.mapper.UserMapper">
+
+    <insert id="insertUser" parameterType="com.resume.pojo.User">
+        INSERT INTO user(username, password)
+        VALUES (#{username}, #{password})
+    </insert>
+
+    <select id="getUserByUsername" parameterType="string" resultType="com.resume.pojo.User">
+        SELECT *
+        FROM user
+        WHERE username = #{username}
+    </select>
+
+</mapper>
