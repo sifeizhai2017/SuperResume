@@ -25,7 +25,7 @@
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">
-    <div class="mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-24">
         <div class="mdui-toolbar mdui-color-white mdui-color-theme">
             <button mdui-drawer="{target: '.mc-drawer', swipe: true}"
                     class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"><i class="mdui-icon material-icons">menu</i>
@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="mc-drawer mdui-drawer mdui-drawer-open">
+    <div class="mc-drawer mdui-drawer mdui-drawer-open mdui-shadow-10">
         <ul class="mdui-list">
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">person</i>

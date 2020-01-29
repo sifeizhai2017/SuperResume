@@ -60,7 +60,7 @@ public class UserController {
         boolean b = userService.insertUser(user);
         System.out.println("b = " + b);
 
-        return "/views/index.jsp";
+        return "redirect:/login.jsp";
     }
 
     /**
@@ -83,7 +83,7 @@ public class UserController {
             // 只有在用户名和密码正确的前提下才能把用户名和User对象放入session中去
             session.setAttribute("username", username);
             session.setAttribute("user", userFromDatabase);
-            return "/views/index.jsp";
+            return "redirect:/views/index.jsp";
         } else {
             session.setAttribute("msg", "用户名或密码错误，请重试");
             // 返回的页面自动打开登陆窗口，并通过requestScope中设置的值显示登陆错误
