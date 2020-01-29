@@ -6,13 +6,15 @@
 <!-- namespace:该mapper.xml映射文件的 唯一标识 -->
 <mapper namespace="com.resume.mapper.UserMapper">
 
+    <!-- 表必备三字段：id, gmt_create, gmt_modified -->
     <insert id="insertUser" parameterType="com.resume.pojo.User">
-        INSERT INTO user(username, password)
-        VALUES (#{username}, #{password})
+        INSERT INTO user(username, password, gmt_create, gmt_modified)
+        VALUES (#{username}, #{password}, now(), now())
     </insert>
 
+    <!-- 在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。 -->
     <select id="getUserByUsername" parameterType="string" resultType="com.resume.pojo.User">
-        SELECT *
+        SELECT username, password
         FROM user
         WHERE username = #{username}
     </select>

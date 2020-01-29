@@ -24,8 +24,9 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession();
-
+        // 获取请求的URI：去除http:localhost:8080这部分剩下的
+        String uri = request.getRequestURI();
+//        String a
         return true;
     }
 
