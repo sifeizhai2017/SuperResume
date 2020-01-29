@@ -101,6 +101,5 @@
     <button class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink"><i class="mdui-icon material-icons">add</i>
     </button>
 </div>
-
 </body>
 </html>
