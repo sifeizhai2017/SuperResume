@@ -1,0 +1,43 @@
+.page-index {
+    background-color: #eceff1;
+}
+
+.mc-drawer img {
+    width: 100%;
+}
+
+.breadcrumb-section {
+    background: url("../img/breadcrumb-bg.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+}
+
+.breadcrumb-section .mc-container {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.page-index .password-settings {
+    margin-top: 20px;
+}
+
+.page-index .password-settings .mdui-chip{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .account-section {
+        margin-top: 10px;
+    }
+}
+
+.password-settings .server-section {
+    margin: 10px 10px 20px;
+}
+
+.footer-nav {
+    height: 100px;
+}

@@ -52,7 +52,7 @@
             </li>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
-                <div class="mdui-list-item-content">设置</div>
+                <div class="mdui-list-item-content"><a href="${path}/views/settings.jsp">设置</a></div>
             </li>
         </ul>
     </div>
@@ -83,9 +83,9 @@
                 <div class="mdui-divider"></div>
             </div>
             <div class="index-source">
-                <p class="article-title mdui-text-color-pink mdui-typo-display-1">设置</p>
+                <p class="article-title mdui-text-color-pink mdui-typo-display-1">简历生成</p>
                 <div class="article-content">
-                    <div><p class="mdui-typo-subheading-opacity">对您的邮件账号，系统账号等进行设置</p></div>
+                    <div><p class="mdui-typo-subheading-opacity">通过向导生成一个简洁的markdown简历</p></div>
                     <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
                 </div>
                 <br><br>
@@ -93,14 +93,12 @@
             </div>
         </div>
         <div class="footer-nav mdui-color-theme">
-            <div class="mdui-container">
-            </div>
+            <div class="mdui-container"></div>
         </div>
     </div>
     <!-- 没考虑好怎么用，先放在这里 -->
     <button class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink"><i class="mdui-icon material-icons">add</i>
     </button>
 </div>
-
 </body>
 </html>

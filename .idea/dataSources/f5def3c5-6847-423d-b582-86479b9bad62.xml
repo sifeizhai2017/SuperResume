@@ -1118,13 +1118,15 @@
     <table id="281" parent="5" name="user"/>
     <column id="282" parent="280" name="id">
       <Position>1</Position>
-      <DataType>int|0s</DataType>
+      <DataType>bigint unsigned|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="283" parent="280" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="284" parent="280" name="company">
@@ -1132,51 +1134,95 @@
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="280" name="sendTime">
+    <column id="285" parent="280" name="send_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="280" name="getTime">
+    <column id="286" parent="280" name="receive_time">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="280" name="read">
+    <column id="287" parent="280" name="is_read">
       <Position>6</Position>
-      <DataType>int|0s</DataType>
+      <DataType>tinyint(3) unsigned zerofill|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="280" name="location">
+    <column id="288" parent="280" name="gmt_create">
       <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="280" name="PRIMARY">
+    <column id="289" parent="280" name="gmt_modified">
+      <Position>8</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP(6)</OnUpdate>
+    </column>
+    <index id="290" parent="280" name="fk_username">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="291" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="290" parent="281" name="id">
+    <foreign-key id="292" parent="280" name="fk_username">
+      <ColNames>username</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>username</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="293" parent="281" name="id">
       <Position>1</Position>
-      <DataType>int|0s</DataType>
+      <DataType>bigint(20) unsigned zerofill|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="281" name="username">
+    <column id="294" parent="281" name="username">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="281" name="password">
+    <column id="295" parent="281" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="293" parent="281" name="PRIMARY">
+    <column id="296" parent="281" name="email_addr">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="297" parent="281" name="email_password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="298" parent="281" name="gmt_create">
+      <Position>6</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="299" parent="281" name="gmt_modified">
+      <Position>7</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP(6)</OnUpdate>
+    </column>
+    <index id="300" parent="281" name="username">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="301" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>id
+username</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
