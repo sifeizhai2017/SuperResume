@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -30,6 +29,7 @@ public class UserController {
 
     /**
      * 根据用户名获取用户
+     *
      * @param map 存储attribute
      * @return 跳转页面
      */
@@ -45,6 +45,7 @@ public class UserController {
 
     /**
      * 用户注册
+     *
      * @param username 用户名
      * @param password 密码
      * @return 跳转页面
@@ -64,10 +65,11 @@ public class UserController {
 
     /**
      * 用户登录
+     *
      * @param username 用户名
      * @param password 密码
-     * @param session session对象
-     * @param map map对象
+     * @param session  session对象
+     * @param map      map对象
      * @return 登陆成功/失败的页面
      */
     @RequestMapping(value = "userLogin", method = RequestMethod.POST)
@@ -76,9 +78,11 @@ public class UserController {
         User userFromDatabase = userService.getUserByUsername(username);
         String usernameFromDatabase = userFromDatabase.getUsername();
         String passwordFromDatabase = userFromDatabase.getPassword();
-        if (username.equals(usernameFromDatabase) && password.equals(passwordFromDatabase)) {
-            // 只有在用户名和密码正确的前提下才能把用户名放入session中去
+        boolean result = username.equals(usernameFromDatabase) && password.equals(passwordFromDatabase);
+        if (result) {
+            // 只有在用户名和密码正确的前提下才能把用户名和User对象放入session中去
             session.setAttribute("username", username);
+            session.setAttribute("user", userFromDatabase);
             return "/views/index.jsp";
         } else {
             session.setAttribute("msg", "用户名或密码错误，请重试");

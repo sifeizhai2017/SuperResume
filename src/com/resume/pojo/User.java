@@ -1,12 +1,16 @@
 package com.resume.pojo;
 
 /**
+ * 和用户信息有关的类
+ *
  * @author danny
  * @date 2020/1/27
  */
 public class User {
     private String username;
     private String password;
+    private String emailAddr;
+    private String emailPassword;
 
     public User() {
     }
@@ -32,11 +36,30 @@ public class User {
         this.password = password;
     }
 
+    public String getEmailAddr() {
+        return emailAddr;
+    }
+
+    public void setEmailAddr(String emailAddr) {
+        this.emailAddr = emailAddr;
+    }
+
+    public String getEmailPassword() {
+        return emailPassword;
+    }
+
+    public void setEmailPassword(String emailPassword) {
+        this.emailPassword = emailPassword;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", emailAddr='").append(emailAddr).append('\'');
+        sb.append(", emailPassword='").append(emailPassword).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

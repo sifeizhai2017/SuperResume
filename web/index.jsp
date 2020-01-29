@@ -18,10 +18,10 @@
     <script src="${path}/mdui/js/mdui.min.js"></script>
     <link rel="stylesheet" href="${path}/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="${path}/css/index-style.css">
-    <link rel="stylesheet"
-          href="https://www.mdui.org/static/home/default/dist/css/app.0ffb3331a8eb5d052581c4b8cf5e1a70.css">
-    <link rel="stylesheet"
-          href="https://www.mdui.org//static/home/default/dist/css/vendor.57f492fe4d88c7538803b152fe84a7ca.css">
+<%--    <link rel="stylesheet"--%>
+<%--          href="https://www.mdui.org/static/home/default/dist/css/app.0ffb3331a8eb5d052581c4b8cf5e1a70.css">--%>
+<%--    <link rel="stylesheet"--%>
+<%--          href="https://www.mdui.org//static/home/default/dist/css/vendor.57f492fe4d88c7538803b152fe84a7ca.css">--%>
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">

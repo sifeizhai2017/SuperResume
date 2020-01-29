@@ -20,5 +20,10 @@
 <!--        <property name="prefix" value="/"/>-->
 <!--        <property name="suffix" value=".jsp"/>-->
     </bean>
-
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.resume.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
