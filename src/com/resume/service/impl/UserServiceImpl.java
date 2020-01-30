@@ -17,13 +17,10 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     public UserMapper getUserMapper() {
-        System.out.println("getUserMapper");
         return userMapper;
     }
 
     public void setUserMapper(UserMapper userMapper) {
-        System.out.println("setUserMapper");
-        System.out.println("userMapper = " + userMapper);
         this.userMapper = userMapper;
     }
 
@@ -45,5 +42,36 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean getExist(String username) {
         return userMapper.getUserByUsername(username) != null;
+    }
+
+    @Override
+    public boolean updateEmailInfo(User user) {
+        // 用户存在才能修改
+        if (getExist(user.getUsername())) {
+            userMapper.updateEmailInfo(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateUserPassword(User user) {
+        if (getExist(user.getUsername())) {
+            userMapper.updateUserPassword(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateServer(User user) {
+        if (getExist(user.getUsername())) {
+            userMapper.updateServer(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

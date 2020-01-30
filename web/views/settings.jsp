@@ -71,14 +71,15 @@
                                 <span class="mdui-chip-icon mdui-color-indigo">E</span>
                                 <span class="mdui-chip-title">邮箱账户设置</span>
                             </div>
-                            <form class="mdui-card-content">
+                            ${requestScope.emailMsg}
+                            <form class="mdui-card-content" action="../user/updateEmail" method="post">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">邮箱账号</label>
-                                    <input class="mdui-textfield-input" type="email" name="emailaddr"/>
+                                    <input class="mdui-textfield-input" type="email" name="emailAddr"/>
                                 </div>
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">邮箱密码</label>
-                                    <input class="mdui-textfield-input" type="password" name="emailpwd"/>
+                                    <input class="mdui-textfield-input" type="password" name="emailPwd"/>
                                 </div>
                                 <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
                                         type="submit">提交
@@ -93,18 +94,19 @@
                                 <span class="mdui-chip-icon mdui-color-indigo">M</span>
                                 <span class="mdui-chip-title">密码修改</span>
                             </div>
-                            <form class="mdui-card-content">
+                            ${requestScope.pwdMsg}
+                            <form class="mdui-card-content" action="../user/updateUserPassword" method="post">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">输入旧密码</label>
-                                    <input class="mdui-textfield-input" type="password" name="oldpwd"/>
+                                    <input class="mdui-textfield-input" type="password" name="oldPwd"/>
                                 </div>
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">输入新密码</label>
-                                    <input class="mdui-textfield-input" type="password" name="newpwd"/>
+                                    <input class="mdui-textfield-input" type="password" name="newPwd"/>
                                 </div>
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">确认密码</label>
-                                    <input class="mdui-textfield-input" type="password" name="confirmpwd"/>
+                                    <input class="mdui-textfield-input" type="password" name="confirmPwd"/>
                                 </div>
                                 <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
                                         type="submit">提交
@@ -122,18 +124,19 @@
                                 <span class="mdui-chip-icon mdui-color-indigo">A</span>
                                 <span class="mdui-chip-title">邮箱服务器设置</span>
                             </div>
+                            ${requestScope.svrMsg}
                             <form class="mdui-card-content">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">IMAP服务器</label>
-                                    <input class="mdui-textfield-input" type="text" name="imap"/>
+                                    <input class="mdui-textfield-input" type="text" name="imapServer"/>
                                 </div>
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">POP3服务器</label>
-                                    <input class="mdui-textfield-input" type="text" name="pop3"/>
+                                    <input class="mdui-textfield-input" type="text" name="pop3Server"/>
                                 </div>
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">SMTP服务器</label>
-                                    <input class="mdui-textfield-input" type="text" name="smtp"/>
+                                    <input class="mdui-textfield-input" type="text" name="smtpServer"/>
                                 </div>
                                 <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
                                         type="submit">提交

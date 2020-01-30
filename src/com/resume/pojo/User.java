@@ -11,6 +11,9 @@ public class User {
     private String password;
     private String emailAddr;
     private String emailPassword;
+    private String imapServer;
+    private String smtpServer;
+    private String pop3Server;
 
     public User() {
     }
@@ -52,6 +55,30 @@ public class User {
         this.emailPassword = emailPassword;
     }
 
+    public String getImapServer() {
+        return imapServer;
+    }
+
+    public void setImapServer(String imapServer) {
+        this.imapServer = imapServer;
+    }
+
+    public String getSmtpServer() {
+        return smtpServer;
+    }
+
+    public void setSmtpServer(String smtpServer) {
+        this.smtpServer = smtpServer;
+    }
+
+    public String getPop3Server() {
+        return pop3Server;
+    }
+
+    public void setPop3Server(String pop3Server) {
+        this.pop3Server = pop3Server;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
@@ -59,6 +86,9 @@ public class User {
         sb.append(", password='").append(password).append('\'');
         sb.append(", emailAddr='").append(emailAddr).append('\'');
         sb.append(", emailPassword='").append(emailPassword).append('\'');
+        sb.append(", imapServer='").append(imapServer).append('\'');
+        sb.append(", smtpServer='").append(smtpServer).append('\'');
+        sb.append(", pop3Server='").append(pop3Server).append('\'');
         sb.append('}');
         return sb.toString();
     }

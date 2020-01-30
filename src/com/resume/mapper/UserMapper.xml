@@ -19,4 +19,30 @@
         WHERE username = #{username}
     </select>
 
+    <!-- 更新邮件账号和密码 -->
+    <update id="updateEmailInfo" parameterType="com.resume.pojo.User">
+        UPDATE user
+        SET email_addr=#{emailAddr},
+            email_password=#{emailPassword},
+            gmt_modified=now()
+        WHERE username = #{username}
+    </update>
+
+    <!-- 更新用户密码 -->
+    <update id="updateUserPassword" parameterType="com.resume.pojo.User">
+        UPDATE user
+        SET password=#{password},
+            gmt_modified=now()
+        WHERE username = #{username}
+    </update>
+
+    <!-- 更新邮箱信息 -->
+    <update id="updateServer" parameterType="com.resume.pojo.User">
+        UPDATE user
+        SET pop3_server=#{pop3Server},
+            smtp_server=#{smtpServer},
+            imap_server=#{imapServer}
+        WHERE username = #{username}
+    </update>
+
 </mapper>
