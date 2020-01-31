@@ -1,0 +1,52 @@
+.mc-drawer img {
+    width: 100%;
+}
+
+#inbox {
+
+    height: 300px;
+}
+
+#inbox .inbox-img-container {
+    display: inline-block;
+    background: url("../img/inbox-img.png");
+    background-size: cover;
+    height: 288px;
+    width: 100%;
+    position: relative;
+}
+
+#inbox .inbox-img-container .inbox-title {
+    padding-top: 200px;
+}
+
+#inbox .inbox-fab-refresh {
+    top: 23px;
+    left: 82%;
+}
+
+#send {
+
+    height: 300px;
+}
+
+#send .inbox-img-container {
+    display: inline-block;
+    background: url("../img/inbox-img.png");
+    background-size: cover;
+    height: 288px;
+    width: 100%;
+    position: relative;
+}
+
+#send .inbox-img-container .inbox-title {
+    padding-top: 200px;
+}
+
+#send .inbox-fab-refresh {
+    top: 23px;
+    left: 82%;
+}
+
+
+

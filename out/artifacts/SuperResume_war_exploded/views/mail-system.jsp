@@ -17,7 +17,7 @@
     %>
     <script src="${path}/mdui/js/mdui.min.js"></script>
     <link rel="stylesheet" href="${path}/mdui/css/mdui.min.css">
-    <link rel="stylesheet" href="${path}/css/settings-style.css">
+    <link rel="stylesheet" href="${path}/css/mail-style.css">
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">
@@ -62,42 +62,112 @@
     </div>
     <!-- 主要部分 -->
     <div class="page-index">
-        <div class="header-section mdui-color-theme">
-            <div class="mc-container mdui-container mdui-clearfix mdui-valign">
-                <p>用户中心</p>
+        <div class="tab-section mdui-color-theme mdui-shadow">
+            <div class="mdui-container">
+                <div class="mdui-tab mdui-color-theme mdui-tab-centered" mdui-tab>
+                    <a href="#inbox" class="mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons">inbox</i>
+                        <label>收件箱</label>
+                    </a>
+                    <a href="#send" class="mdui-ripple mdui-ripple-white">
+                        <i class="mdui-icon material-icons">send</i>
+                        <label>发件箱</label>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="info-list">
-            <div class="index-source">
-                <p class="article-title mdui-text-color-pink mdui-typo-display-1">简历管理</p>
-                <div class="article-content">
-                    <div><p class="mdui-typo-subheading-opacity">简历管理中包含一个简单的邮件系统，您能够在这里发送简历邮件并收到企业的回复</p></div>
-                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
+        <div id="inbox" class="mdui-clearfix">
+            <div class="inbox-img-container">
+                <div class="mdui-container ">
+                    <!-- 文字标题 -->
+                    <div class="mdui-typo-display-1 mdui-text-color-white-text inbox-title">收件箱</div>
+                    <!-- 刷新按钮 -->
+                    <button class="mdui-fab mdui-color-theme-accent mdui-ripple inbox-fab-refresh"
+                            mdui-tooltip="{content: '刷新', position: 'left'}">
+                        <i class="mdui-icon material-icons">refresh</i>
+                    </button>
                 </div>
-                <br><br>
-                <div class="mdui-divider"></div>
             </div>
-            <div class="index-source">
-                <p class="article-title mdui-text-color-pink mdui-typo-display-1">日程管理</p>
-                <div class="article-content">
-                    <div><p class="mdui-typo-subheading-opacity">日程管理记录您发出邮件以及企业的回复</p></div>
-                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
+            <div class="inbox-mail-container">
+                <div class="mdui-container">
+                    <div class="mdui-typo">
+                        <blockquote>
+                            <p>这里可以显示和你的发出的简历的回复</p>
+                        </blockquote>
+                    </div>
                 </div>
-                <br><br>
-                <div class="mdui-divider"></div>
-            </div>
-            <div class="index-source">
-                <p class="article-title mdui-text-color-pink mdui-typo-display-1">简历生成</p>
-                <div class="article-content">
-                    <div><p class="mdui-typo-subheading-opacity">通过向导生成一个简洁的markdown简历</p></div>
-                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
-                </div>
-                <br><br>
-                <div class="mdui-divider"></div>
             </div>
         </div>
-        <div class="footer-nav mdui-color-theme">
-            <div class="mdui-container"></div>
+        <div id="send" class="mdui-clearfix">
+            <div class="inbox-img-container">
+                <div class="mdui-container ">
+                    <!-- 文字标题 -->
+                    <div class="mdui-typo-display-1 mdui-text-color-white-text inbox-title">发件箱</div>
+                    <!-- 刷新按钮 -->
+                    <button class="mdui-fab mdui-color-theme-accent mdui-ripple inbox-fab-refresh"
+                            mdui-tooltip="{content: '刷新', position: 'left'}">
+                        <i class="mdui-icon material-icons">refresh</i>
+                    </button>
+                </div>
+            </div>
+            <div class="inbox-mail-container">
+                <div class="mdui-container">
+                    <div class="mdui-typo">
+                        <blockquote>
+                            <p>这里可以显示和你的发出的简历</p>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="mdui-container">
+                    <div class="mdui-panel" mdui-panel>
+                        <div class="mdui-panel-item">
+                            <div class="mdui-panel-item-header">
+                                <div class="mdui-panel-item-title">邮件主题</div>
+                                <div class="mdui-panel-item-summary">Super Reusme really works</div>
+                                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="mdui-panel-item-body">
+                                <p>发件人</p>
+                                <p>收件人</p>
+                                <p>发送时间</p>
+                                <p>是否已读</p>
+                                <p>邮件优先级</p>
+                                <p>邮件内容</p>
+                            </div>
+                        </div>
+                        <div class="mdui-panel-item">
+                            <div class="mdui-panel-item-header">
+                                <div class="mdui-panel-item-title">Location</div>
+                                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="mdui-panel-item-body">
+                                <p>Second content</p>
+                                <p>Second content</p>
+                                <p>Second content</p>
+                                <p>Second content</p>
+                                <p>Second content</p>
+                                <p>Second content</p>
+                            </div>
+                        </div>
+                        <div class="mdui-panel-item">
+                            <div class="mdui-panel-item-header">
+                                <div class="mdui-panel-item-title">Start and end dates</div>
+                                <div class="mdui-panel-item-summary">Start date: Feb 29, 2016</div>
+                                <div class="mdui-panel-item-summary">End date: Not set</div>
+                                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="mdui-panel-item-body">
+                                <p>Third content</p>
+                                <p>Third content</p>
+                                <p>Third content</p>
+                                <p>Third content</p>
+                                <p>Third content</p>
+                                <p>Third content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
