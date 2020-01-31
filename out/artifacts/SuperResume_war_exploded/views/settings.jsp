@@ -43,11 +43,15 @@
             </li>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
-                <div class="mdui-list-item-content">简历管理</div>
+                <div class="mdui-list-item-content"><a href="${path}/views/mail-system.jsp">邮件系统</a></div>
             </li>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
                 <div class="mdui-list-item-content">日程管理</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                <div class="mdui-list-item-content">简历生成</div>
             </li>
             <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
                 <i class="mdui-list-item-icon mdui-icon material-icons  mdui-text-color-theme">settings</i>
@@ -124,6 +128,7 @@
                                 <span class="mdui-chip-icon mdui-color-indigo">A</span>
                                 <span class="mdui-chip-title">邮箱服务器设置</span>
                             </div>
+                            ${requestScope.svrMsg}
                             <form class="mdui-card-content">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">IMAP服务器</label>

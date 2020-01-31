@@ -48,5 +48,7 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="app.0ffb3331a8eb5d052581c4b8cf5e1a70" level="application" />
     <orderEntry type="library" name="vendor.57f492fe4d88c7538803b152fe84a7ca" level="application" />
+    <orderEntry type="library" name="activation-1.1.1" level="project" />
+    <orderEntry type="library" name="javax.mail-1.6.2" level="project" />
   </component>
 </module>

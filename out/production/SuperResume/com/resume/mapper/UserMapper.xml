@@ -37,7 +37,7 @@
     </update>
 
     <!-- 更新邮箱信息 -->
-    <update id="UpdateServer" parameterType="com.resume.pojo.User">
+    <update id="updateServer" parameterType="com.resume.pojo.User">
         UPDATE user
         SET pop3_server=#{pop3Server},
             smtp_server=#{smtpServer},

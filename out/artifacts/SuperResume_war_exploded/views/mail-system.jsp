@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: danny
-  Date: 2020/1/28
-  Time: 18:51
-  Desc: 登入后的页面
+  Date: 2020/1/30
+  Time: 14:23
+  Desc: markdown简历生成器
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>用户中心</title>
+    <title>Title</title>
     <%
         String path = request.getContextPath();
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
@@ -17,7 +17,7 @@
     %>
     <script src="${path}/mdui/js/mdui.min.js"></script>
     <link rel="stylesheet" href="${path}/mdui/css/mdui.min.css">
-    <link rel="stylesheet" href="${path}/css/user-style.css">
+    <link rel="stylesheet" href="${path}/css/settings-style.css">
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">
@@ -38,12 +38,12 @@
     <div class="mc-drawer mdui-drawer mdui-drawer-open mdui-shadow-10">
         <img src="${path}/img/user-bg.png" alt="">
         <ul class="mdui-list">
-            <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
-                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">home</i>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
                 <div class="mdui-list-item-content"><a href="${path}/views/index.jsp">首页</a></div>
             </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
+            <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
+                <i class="mdui-list-item-icon mdui-icon material-icons  mdui-text-color-theme">account_balance</i>
                 <div class="mdui-list-item-content"><a href="${path}/views/mail-system.jsp">邮件系统</a></div>
             </li>
             <li class="mdui-list-item mdui-ripple">
@@ -100,9 +100,6 @@
             <div class="mdui-container"></div>
         </div>
     </div>
-    <!-- 没考虑好怎么用，先放在这里 -->
-    <button class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink"><i class="mdui-icon material-icons">add</i>
-    </button>
 </div>
 </body>
 </html>
