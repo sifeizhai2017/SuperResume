@@ -15,15 +15,14 @@
     <context:component-scan base-package="com.resume.controller"/>
 
     <!-- 视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!-- 配了有问题，索性不配了 -->
-<!--        <property name="prefix" value="/"/>-->
-<!--        <property name="suffix" value=".jsp"/>-->
-    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+
+    <!--
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="com.resume.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    -->
 </beans>

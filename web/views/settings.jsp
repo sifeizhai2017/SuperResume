@@ -43,7 +43,7 @@
             </li>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
-                <div class="mdui-list-item-content"><a href="${path}/views/mail-system.jsp">邮件系统</a></div>
+                <div class="mdui-list-item-content"><a href="${path}/views/mailsystem.jsp">邮件系统</a></div>
             </li>
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>

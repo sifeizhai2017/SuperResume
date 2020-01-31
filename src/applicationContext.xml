@@ -57,4 +57,7 @@
     <bean id="userController" class="com.resume.controller.UserController">
         <property name="userService" ref="userService"/>
     </bean>
+
+    <!-- resume相关 -->
+    <bean id="resumeController" class="com.resume.controller.ResumeController"/>
 </beans>

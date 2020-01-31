@@ -9,6 +9,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Properties;
 
 /**
@@ -16,8 +17,8 @@ import java.util.Properties;
  * @date 2020/1/31
  */
 public class ReceiveMailSSL {
-    public static final String EMAIL_ADDR = "";
-    public static final String EMAIL_PWD = "";
+    public static final String EMAIL_ADDR = "958367333@qq.com";
+    public static final String EMAIL_PWD = "jfcekilenstjbdjj";
 
     public static void main(String[] args) throws Exception {
         receive();
@@ -26,7 +27,7 @@ public class ReceiveMailSSL {
     /**
      * 接收邮件
      */
-    public static void receive() throws Exception {
+    public static Message[] receive() throws Exception {
         // 准备连接服务器的会话信息
         Properties props = new Properties();
         // 协议
@@ -43,14 +44,12 @@ public class ReceiveMailSSL {
         store.connect(EMAIL_ADDR, EMAIL_PWD);
 
         Folder defaultFolder = store.getDefaultFolder();
-        System.out.println("defaultFolder = " + defaultFolder);
         Folder[] allFolder = defaultFolder.list();
-        // Arrays.toString(allFolder) = [其他文件夹, INBOX, Sent Messages, Drafts, Deleted Messages, Junk]
-        System.out.println("Arrays.toString(allFolder) = " + Arrays.toString(allFolder));
 
         // 获得收件箱
-        Folder folder = store.getFolder("Sent Messages");
-        // Folder folder = store.getFolder("INBOX");
+        /// 获取发件箱的内容
+        // Folder folder = store.getFolder("Sent Messages");
+        Folder folder = store.getFolder("INBOX");
 
         /*
         Folder.READ_ONLY：只读权限
@@ -65,17 +64,20 @@ public class ReceiveMailSSL {
         // 由于POP3协议无法获知邮件的状态,所以下面得到的结果始终都是为0
         System.out.println("删除邮件数: " + folder.getDeletedMessageCount());
         System.out.println("新邮件: " + folder.getNewMessageCount());
-        System.out.println(folder.getURLName());
         // 获得收件箱中的邮件总数
         System.out.println("邮件总数: " + folder.getMessageCount());
 
         // 得到收件箱中的所有邮件,并解析
         Message[] messages = folder.getMessages();
         parseMessage(messages);
+        System.out.println("RMSSL messages = " + Arrays.toString(messages));
+
 
         //释放资源
         folder.close(true);
         store.close();
+
+        return messages;
     }
 
     /**
@@ -83,34 +85,38 @@ public class ReceiveMailSSL {
      *
      * @param messages 要解析的邮件列表
      */
-    public static void parseMessage(Message... messages) throws MessagingException, IOException {
+    public static void parseMessage(Message... messages) {
         if (messages == null || messages.length < 1) {
-            throw new MessagingException("未找到要解析的邮件!");
+            System.out.println("未找到要解析的邮件!");
         }
 
         // 解析所有邮件
         for (Message message : messages) {
-            MimeMessage msg = (MimeMessage) message;
-            System.out.println("------------------解析第" + msg.getMessageNumber() + "封邮件-------------------- ");
-            System.out.println("主题: " + getSubject(msg));
-            System.out.println("发件人: " + getFrom(msg));
-            System.out.println("收件人：" + getReceiveAddress(msg, null));
-            System.out.println("发送时间：" + getSentDate(msg, null));
-            System.out.println("是否已读：" + isSeen(msg));
-            System.out.println("邮件优先级：" + getPriority(msg));
-            System.out.println("是否需要回执：" + isReplySign(msg));
-            System.out.println("邮件大小：" + msg.getSize() * 1024 + "kb");
-            boolean isContainerAttachment = isContainAttachment(msg);
-            System.out.println("是否包含附件：" + isContainerAttachment);
-            if (isContainerAttachment) {
-                //保存附件
-                saveAttachment(msg, "c:\\mailtmp\\" + msg.getSubject() + "_");
+            try {
+                MimeMessage msg = (MimeMessage) message;
+                System.out.println("------------------解析第" + msg.getMessageNumber() + "封邮件-------------------- ");
+                System.out.println("主题: " + getSubject(msg));
+                System.out.println("发件人: " + getFrom(msg));
+                System.out.println("收件人：" + getReceiveAddress(msg, null));
+                System.out.println("发送时间：" + getSentDate(msg, null));
+                System.out.println("是否已读：" + isSeen(msg));
+                System.out.println("邮件优先级：" + getPriority(msg));
+                System.out.println("是否需要回执：" + isReplySign(msg));
+                System.out.println("邮件大小：" + msg.getSize() * 1024 + "kb");
+                boolean isContainerAttachment = isContainAttachment(msg);
+                System.out.println("是否包含附件：" + isContainerAttachment);
+                if (isContainerAttachment) {
+                    //保存附件
+                    saveAttachment(msg, "c:\\mailtmp\\" + msg.getSubject() + "_");
+                }
+                StringBuffer content = new StringBuffer(30);
+                getMailTextContent(msg, content);
+                System.out.println("邮件正文：" + (content.length() > 100 ? content.substring(0, 100) + "..." : content));
+                System.out.println("------------------第" + msg.getMessageNumber() + "封邮件解析结束-------------------- ");
+                System.out.println();
+            } catch (MessagingException | IOException e) {
+                e.printStackTrace();
             }
-            StringBuffer content = new StringBuffer(30);
-            getMailTextContent(msg, content);
-            System.out.println("邮件正文：" + (content.length() > 100 ? content.substring(0, 100) + "..." : content));
-            System.out.println("------------------第" + msg.getMessageNumber() + "封邮件解析结束-------------------- ");
-            System.out.println();
         }
     }
 
