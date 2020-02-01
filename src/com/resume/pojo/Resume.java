@@ -13,8 +13,10 @@ public class Resume {
     private BigInteger id;
     private String username;
     private String company;
+    private String position;
     private Date sendTime;
     private Date receiveTime;
+    private Date interviewTime;
     private boolean read;
 
     public Resume() { }
@@ -67,14 +69,36 @@ public class Resume {
         this.read = read;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Date getInterviewTime() {
+        return interviewTime;
+    }
+
+    public void setInterviewTime(Date interviewTime) {
+        this.interviewTime = interviewTime;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Resume{");
         sb.append("id=").append(id);
         sb.append(", username='").append(username).append('\'');
         sb.append(", company='").append(company).append('\'');
+        sb.append(", position='").append(position).append('\'');
         sb.append(", sendTime=").append(sendTime);
         sb.append(", receiveTime=").append(receiveTime);
+        sb.append(", interviewTime=").append(interviewTime);
         sb.append(", read=").append(read);
         sb.append('}');
         return sb.toString();

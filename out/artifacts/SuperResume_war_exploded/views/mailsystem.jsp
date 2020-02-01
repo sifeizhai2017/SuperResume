@@ -110,7 +110,7 @@
                 <div class="mdui-container">
                     <div class="mdui-panel" mdui-panel>
                         <%
-                            Message[] messages = (Message[]) request.getAttribute("messages");
+                            Message[] messages = (Message[]) session.getAttribute("messages");
                             if (messages != null) {
                                 for (Message message : messages) {
                                     try {
@@ -208,7 +208,7 @@
                     <div class="mdui-container">
                         <div class="mdui-panel" mdui-panel>
                             <%
-                                Message[] sentMessages = (Message[]) request.getAttribute("sentMessages");
+                                Message[] sentMessages = (Message[]) session.getAttribute("sentMessages");
                                 if (sentMessages != null) {
                                     for (Message message : sentMessages) {
                                         try {
