@@ -8,15 +8,19 @@
 
     <!-- 增加一条记录 -->
     <insert id="insertResume" parameterType="com.resume.pojo.Resume">
-        INSERT INTO resume(username, company, send_time, is_read, gmt_create, gmt_modified)
-        VALUES (#{username}, #{company}, now(), #{read}, now(), now())
+        INSERT INTO resume(username, company, position, send_time, is_read, gmt_create, gmt_modified)
+        VALUES (#{username}, #{company}, #{position}, now(), #{read}, now(), now())
     </insert>
 
-    <!-- 在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明。 -->
-    <select id="getUserByUsername" parameterType="string" resultType="com.resume.pojo.User">
-        SELECT *
-        FROM user
-        WHERE id=#{id}
-    </select>
+    <!-- 更新一条记录 -->
+    <update id="updateTime" parameterType="com.resume.pojo.Resume">
+        UPDATE resume
+        SET is_read=#{read},
+            gmt_modified=now(),
+            receive_time=#{receiveTime},
+            interview_time=#{interviewTime}
+        WHERE username = #{username}
+    </update>
+
 
 </mapper>

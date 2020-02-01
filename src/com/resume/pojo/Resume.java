@@ -17,7 +17,7 @@ public class Resume {
     private Date sendTime;
     private Date receiveTime;
     private Date interviewTime;
-    private boolean read;
+    private Boolean read;
 
     public Resume() { }
 
@@ -61,10 +61,6 @@ public class Resume {
         this.receiveTime = receiveTime;
     }
 
-    public boolean getRead() {
-        return read;
-    }
-
     public void setRead(boolean read) {
         this.read = read;
     }
@@ -85,8 +81,12 @@ public class Resume {
         this.interviewTime = interviewTime;
     }
 
-    public boolean isRead() {
+    public Boolean getRead() {
         return read;
+    }
+
+    public void setRead(Boolean read) {
+        this.read = read;
     }
 
     @Override

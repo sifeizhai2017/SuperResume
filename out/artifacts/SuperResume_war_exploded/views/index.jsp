@@ -38,26 +38,37 @@
     <div class="mc-drawer mdui-drawer mdui-drawer-open mdui-shadow-10">
         <img src="${path}/img/user-bg.png" alt="">
         <ul class="mdui-list">
-            <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
-                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">home</i>
-                <div class="mdui-list-item-content"><a href="${path}/views/index.jsp">首页</a></div>
-            </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
-                <div class="mdui-list-item-content"><a href="${path}/views/mailsystem.jsp">邮件系统</a></div>
-            </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
-                <div class="mdui-list-item-content">日程管理</div>
-            </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
-                <div class="mdui-list-item-content">简历生成</div>
-            </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
-                <div class="mdui-list-item-content"><a href="${path}/views/settings.jsp">设置</a></div>
-            </li>
+            <a href="${path}/views/index.jsp">
+                <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">home</i>
+                    <div class="mdui-list-item-content">首页</div>
+                </li>
+            </a>
+            <a href="${path}/views/mailsystem.jsp">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
+                    <div class="mdui-list-item-content">邮件系统</div>
+
+                </li>
+            </a>
+            <a href="javascript:;">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                    <div class="mdui-list-item-content">日程管理</div>
+                </li>
+            </a>
+            <a href="javascript:;">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                    <div class="mdui-list-item-content">简历生成</div>
+                </li>
+            </a>
+            <a href="${path}/views/settings.jsp">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
+                    <div class="mdui-list-item-content">设置</div>
+                </li>
+            </a>
         </ul>
     </div>
     <!-- 主要部分 -->
