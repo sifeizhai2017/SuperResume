@@ -93,7 +93,7 @@
                     <!-- 刷新按钮 -->
                     <a href="../resume/updateInbox">
                         <button class="mdui-fab mdui-color-theme-accent mdui-ripple inbox-fab-refresh"
-                                mdui-tooltip="{content: '刷新', position: 'left'}">
+                                mdui-tooltip="{content: '刷新', position: 'left'}" mdui-dialog="{target: '#wait'}">
                             <i class="mdui-icon material-icons">refresh</i>
                         </button>
                     </a>
@@ -103,7 +103,7 @@
                 <div class="mdui-container">
                     <div class="mdui-typo">
                         <blockquote>
-                            <p>这里可以显示你的发出的简历的回复</p>
+                            <p>这里可以显示你的发出的简历</p>
                         </blockquote>
                     </div>
                 </div>
@@ -188,10 +188,12 @@
                         <!-- 文字标题 -->
                         <div class="mdui-typo-display-1 mdui-text-color-white-text inbox-title">发件箱</div>
                         <!-- 刷新按钮 -->
-                        <button class="mdui-fab mdui-color-theme-accent mdui-ripple inbox-fab-refresh"
-                                mdui-tooltip="{content: '刷新', position: 'left'}">
-                            <i class="mdui-icon material-icons">refresh</i>
-                        </button>
+                        <a href="../resume/updateSend">
+                            <button class="mdui-fab mdui-color-theme-accent mdui-ripple inbox-fab-refresh"
+                                    mdui-tooltip="{content: '刷新', position: 'left'}" mdui-dialog="{target: '#wait'}">
+                                <i class="mdui-icon material-icons">refresh</i>
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="sent-mail-container">
@@ -199,61 +201,93 @@
                         <div class="mdui-typo">
                             <blockquote>
                                 <p>这里可以显示你的发出的简历的回复</p>
+                                <p>刷新后若显示的是收件箱，请手动跳转到发件箱</p>
                             </blockquote>
                         </div>
                     </div>
                     <div class="mdui-container">
                         <div class="mdui-panel" mdui-panel>
+                            <%
+                                Message[] sentMessages = (Message[]) request.getAttribute("sentMessages");
+                                if (sentMessages != null) {
+                                    for (Message message : sentMessages) {
+                                        try {
+                                            MimeMessage msg = (MimeMessage) message;
+                            %>
                             <div class="mdui-panel-item">
                                 <div class="mdui-panel-item-header">
                                     <div class="mdui-panel-item-title">邮件主题</div>
-                                    <div class="mdui-panel-item-summary">Super Reusme really works</div>
+                                    <div class="mdui-panel-item-summary"><%=message.getSubject()%></div>
                                     <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                                 </div>
                                 <div class="mdui-panel-item-body">
-                                    <p>发件人</p>
-                                    <p>收件人</p>
-                                    <p>发送时间</p>
-                                    <p>是否已读</p>
-                                    <p>邮件优先级</p>
-                                    <p>邮件内容</p>
+                                    <p>
+                                        <strong>发件人：</strong>
+                                        <%
+                                            String from = "";
+                                            Address[] froms = msg.getFrom();
+                                            if (froms.length < 1) {
+                                                throw new MessagingException("没有发件人!");
+                                            }
+
+                                            InternetAddress address = (InternetAddress) froms[0];
+                                            String person = address.getPersonal();
+                                            if (person != null) {
+                                                person = MimeUtility.decodeText(person) + " ";
+                                            } else {
+                                                person = "";
+                                            }
+                                            from = person + "<" + address.getAddress() + ">";
+
+                                            out.println(from);
+                                        %>
+                                    </p>
+                                    <p>
+                                        <strong>收件人：</strong>
+                                        <%
+                                            StringBuilder receiveAddress = new StringBuilder();
+                                            Address[] addresses = null;
+                                            addresses = msg.getAllRecipients();
+
+                                            if (addresses == null || addresses.length < 1) {
+                                                throw new MessagingException("没有收件人!");
+                                            }
+                                            for (Address add : addresses) {
+                                                InternetAddress internetAddress = (InternetAddress) add;
+                                                receiveAddress.append(internetAddress.toUnicodeString()).append(",");
+                                            }
+
+                                            // 删除最后一个逗号
+                                            receiveAddress.deleteCharAt(receiveAddress.length() - 1);
+
+                                            out.println(receiveAddress);
+                                        %>
+                                    </p>
+                                    <p><strong>发送时间：</strong><%=message.getSentDate()%></p>
+                                    <p><strong>是否已读：</strong><%=message.getFlags().contains(Flags.Flag.SEEN)%></p>
                                 </div>
                             </div>
-                            <div class="mdui-panel-item">
-                                <div class="mdui-panel-item-header">
-                                    <div class="mdui-panel-item-title">Location</div>
-                                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-                                </div>
-                                <div class="mdui-panel-item-body">
-                                    <p>Second content</p>
-                                    <p>Second content</p>
-                                    <p>Second content</p>
-                                    <p>Second content</p>
-                                    <p>Second content</p>
-                                    <p>Second content</p>
-                                </div>
-                            </div>
-                            <div class="mdui-panel-item">
-                                <div class="mdui-panel-item-header">
-                                    <div class="mdui-panel-item-title">Start and end dates</div>
-                                    <div class="mdui-panel-item-summary">Start date: Feb 29, 2016</div>
-                                    <div class="mdui-panel-item-summary">End date: Not set</div>
-                                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-                                </div>
-                                <div class="mdui-panel-item-body">
-                                    <p>Third content</p>
-                                    <p>Third content</p>
-                                    <p>Third content</p>
-                                    <p>Third content</p>
-                                    <p>Third content</p>
-                                    <p>Third content</p>
-                                </div>
-                            </div>
+                            <%
+                                        } catch (MessagingException | IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                            %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<div class="mdui-dialog" id="wait">
+    <div class="mdui-dialog-title">请稍等</div>
+    <div class="mdui-dialog-content">
+        <div class="mdui-progress">
+            <div class="mdui-progress-indeterminate"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

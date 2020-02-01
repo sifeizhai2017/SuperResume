@@ -17,17 +17,31 @@ import java.util.Properties;
  * @date 2020/1/31
  */
 public class ReceiveMailSSL {
-    public static final String EMAIL_ADDR = "958367333@qq.com";
-    public static final String EMAIL_PWD = "jfcekilenstjbdjj";
+    public static final String INBOX_FOLDER = "INBOX";
+    public static final String SENT_FOLDER = "Sent Messages";
+    private String emailAddr = "958367333@qq.com";
+    private String emailPwd = "jfcekilenstjbdjj";
 
-    public static void main(String[] args) throws Exception {
-        receive();
+    public String getEmailAddr() {
+        return emailAddr;
+    }
+
+    public void setEmailAddr(String emailAddr) {
+        this.emailAddr = emailAddr;
+    }
+
+    public String getEmailPwd() {
+        return emailPwd;
+    }
+
+    public void setEmailPwd(String emailPwd) {
+        this.emailPwd = emailPwd;
     }
 
     /**
      * 接收邮件
      */
-    public static Message[] receive() throws Exception {
+    public Message[] receive(String folderName) throws Exception {
         // 准备连接服务器的会话信息
         Properties props = new Properties();
         // 协议
@@ -41,7 +55,7 @@ public class ReceiveMailSSL {
         // 创建Session实例对象
         Session session = Session.getInstance(props);
         Store store = session.getStore("imap");
-        store.connect(EMAIL_ADDR, EMAIL_PWD);
+        store.connect(getEmailAddr(), getEmailPwd());
 
         Folder defaultFolder = store.getDefaultFolder();
         Folder[] allFolder = defaultFolder.list();
@@ -49,7 +63,7 @@ public class ReceiveMailSSL {
         // 获得收件箱
         /// 获取发件箱的内容
         // Folder folder = store.getFolder("Sent Messages");
-        Folder folder = store.getFolder("INBOX");
+        Folder folder = store.getFolder(folderName);
 
         /*
         Folder.READ_ONLY：只读权限

@@ -24,10 +24,22 @@ public class ResumeController {
     @RequestMapping(value = "updateInbox")
     public String updateInbox(Map<String, Object> map) throws Exception {
         // TODO: 为了防止报空指针异常，这里最好用Option包一下
-        Message[] messages = ReceiveMailSSL.receive();
+        ReceiveMailSSL receiveMail = new ReceiveMailSSL();
+        Message[] messages = receiveMail.receive(ReceiveMailSSL.INBOX_FOLDER);
         System.out.println("CTRL messages = " + Arrays.toString(messages));
         map.put("messages", messages);
 
         return "/views/mailsystem.jsp";
+    }
+
+    @RequestMapping(value = "updateSend")
+    public String updateSend(Map<String, Object> map) throws Exception {
+        // TODO: 为了防止报空指针异常，这里最好用Option包一下
+        ReceiveMailSSL receiveMail = new ReceiveMailSSL();
+        Message[] sentMessages = receiveMail.receive(ReceiveMailSSL.SENT_FOLDER);
+        System.out.println("CTRL messages = " + Arrays.toString(sentMessages));
+        map.put("sentMessages", sentMessages);
+
+        return "/views/mailsystem.jsp#send";
     }
 }
