@@ -3,6 +3,10 @@
 <%@ page import="javax.mail.MessagingException" %>
 <%@ page import="java.io.IOException" %>
 <%@ page import="com.resume.mail.ReceiveMailSSL" %>
+<%@ page import="javax.mail.Flags" %>
+<%@ page import="javax.mail.Address" %>
+<%@ page import="javax.mail.internet.InternetAddress" %>
+<%@ page import="javax.mail.internet.MimeUtility" %>
 <%--
   Created by IntelliJ IDEA.
   User: danny
@@ -111,22 +115,60 @@
                                 for (Message message : messages) {
                                     try {
                                         MimeMessage msg = (MimeMessage) message;
-                                        StringBuffer content = new StringBuffer(30);
-                                        ReceiveMailSSL.getMailTextContent(msg, content);
+//                                        StringBuffer content = new StringBuffer(30);
+//                                        ReceiveMailSSL.getMailTextContent(msg, content);
                         %>
                         <div class="mdui-panel-item">
                             <div class="mdui-panel-item-header">
                                 <div class="mdui-panel-item-title">邮件主题</div>
-                                <div class="mdui-panel-item-summary"><%=ReceiveMailSSL.getSubject(msg)%></div>
+                                <div class="mdui-panel-item-summary"><%=message.getSubject()%></div>
                                     <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                                 </div>
                                 <div class="mdui-panel-item-body">
-                                    <p><strong>发件人：</strong><%=ReceiveMailSSL.getFrom(msg)%></p>
-                                    <p><strong>收件人：</strong><%=ReceiveMailSSL.getReceiveAddress(msg, null)%></p>
-                                    <p><strong>发送时间：</strong><%=ReceiveMailSSL.getSentDate(msg, null)%></p>
-                                    <p><strong>是否已读：</strong><%=ReceiveMailSSL.isSeen(msg)%></p>
-                                    <p><strong>邮件优先级：</strong><%=ReceiveMailSSL.getPriority(msg)%></p>
-                                    <p class="mdui-text-truncate"><strong>邮件内容：</strong><%=content.toString()%></p>
+                                    <p>
+                                        <strong>发件人：</strong>
+                                        <%
+                                            String from = "";
+                                            Address[] froms = msg.getFrom();
+                                            if (froms.length < 1) {
+                                                throw new MessagingException("没有发件人!");
+                                            }
+
+                                            InternetAddress address = (InternetAddress) froms[0];
+                                            String person = address.getPersonal();
+                                            if (person != null) {
+                                                person = MimeUtility.decodeText(person) + " ";
+                                            } else {
+                                                person = "";
+                                            }
+                                            from = person + "<" + address.getAddress() + ">";
+
+                                            out.println(from);
+                                        %>
+                                    </p>
+                                    <p>
+                                        <strong>收件人：</strong>
+                                        <%
+                                            StringBuilder receiveAddress = new StringBuilder();
+                                            Address[] addresses = null;
+                                            addresses = msg.getAllRecipients();
+
+                                            if (addresses == null || addresses.length < 1) {
+                                                throw new MessagingException("没有收件人!");
+                                            }
+                                            for (Address add : addresses) {
+                                                InternetAddress internetAddress = (InternetAddress) add;
+                                                receiveAddress.append(internetAddress.toUnicodeString()).append(",");
+                                            }
+
+                                            // 删除最后一个逗号
+                                            receiveAddress.deleteCharAt(receiveAddress.length() - 1);
+
+                                            out.println(receiveAddress);
+                                        %>
+                                    </p>
+                                    <p><strong>发送时间：</strong><%=message.getSentDate()%></p>
+                                    <p><strong>是否已读：</strong><%=message.getFlags().contains(Flags.Flag.SEEN)%></p>
                                 </div>
                             </div>
                             <%

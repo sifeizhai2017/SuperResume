@@ -33,16 +33,12 @@
             <a class="mdui-typo-headline" href="/">超级简历</a>
             <div class="mdui-typo-title mdui-hidden-xs-down">首页</div>
             <div class="mdui-toolbar-spacer"></div>
-            <div class="mc-login-btn mdui-btn mdui-btn-dense mdui-ripple mdui-ripple-white">
-                <a href="login.jsp">
-                    登陆
-                </a>
-            </div>
-            <div class="mc-register-btn mdui-btn mdui-btn-dense mdui-ripple mdui-ripple-white">
-                <a href="register.jsp">
-                    注册
-                </a>
-            </div>
+            <a href="login.jsp">
+                <div class="mc-login-btn mdui-btn mdui-btn-dense mdui-ripple mdui-ripple-white">登陆</div>
+            </a>
+            <a href="register.jsp">
+                <div class="mc-register-btn mdui-btn mdui-btn-dense mdui-ripple mdui-ripple-white">注册</div>
+            </a>
         </div>
     </div>
     <div class="mc-drawer mdui-drawer mdui-drawer-open mdui-shadow-10">
