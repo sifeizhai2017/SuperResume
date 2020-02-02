@@ -45,9 +45,8 @@ public class Test {
         ResumeMapper resumeMapper = (ResumeMapper) context.getBean("resumeMapper");
         Resume resume = new Resume();
         resume.setUsername("danny");
-        resume.setCompany("sk");
-        resume.setPosition("ant");
-        resumeMapper.insertResume(resume);
-
+        resume.setCompany("ms");
+        Resume resumeInfo = resumeMapper.getResumeInfo(resume);
+        System.out.println("resumeInfo = " + resumeInfo);
     }
 }

@@ -61,13 +61,13 @@
                     <div class="mdui-list-item-content">邮件系统</div>
                 </li>
             </a>
-            <a href="javascript:;">
+            <a href="javascript:">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
                     <div class="mdui-list-item-content">日程管理</div>
                 </li>
             </a>
-            <a href="javascript:;">
+            <a href="javascript:">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
                     <div class="mdui-list-item-content">简历生成</div>
@@ -121,8 +121,9 @@
                 </div>
                 <div class="mdui-container">
                     <div class="mdui-panel" mdui-panel>
+                        ${sessionScope.inboxMessages}
                         <%
-                            ArrayList<Message> inboxMessages = (ArrayList<Message>) session.getAttribute("inboxMessage");
+                            ArrayList<Message> inboxMessages = (ArrayList<Message>) session.getAttribute("inboxMessages");
                             if (inboxMessages != null) {
                                 Iterator<Message> inboxMessagesIterator = inboxMessages.iterator();
                                 while (inboxMessagesIterator.hasNext()) {

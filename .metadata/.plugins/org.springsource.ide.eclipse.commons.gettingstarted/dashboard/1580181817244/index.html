@@ -45,7 +45,7 @@
 			call: function () {
 				return false;
 			}
-		}
+		};
 		
 		function addHtml(element, html) {
 			if (html) {
@@ -55,7 +55,7 @@
 
 		function search(input) {
 			if (input.value != "") {
-				ide.call('openWebPage', 'https://spring.io/search?q=' + input.value)
+				ide.call('openWebPage', 'https://spring.io/search?q=' + input.value);
 				input.value = "";
 			}
 		}
