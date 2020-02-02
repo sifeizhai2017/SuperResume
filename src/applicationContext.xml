@@ -59,5 +59,14 @@
     </bean>
 
     <!-- resume相关 -->
-    <bean id="resumeController" class="com.resume.controller.ResumeController"/>
+    <bean id="receiveMail" class="com.resume.mail.ReceiveMailSSL"/>
+
+    <bean id="resumeService" class="com.resume.service.impl.ResumeServiceImpl">
+        <property name="resumeMapper" ref="resumeMapper"/>
+    </bean>
+
+    <bean id="resumeController" class="com.resume.controller.ResumeController">
+        <property name="resumeService" ref="resumeService"/>
+        <property name="receiveMail" ref="receiveMail"/>
+    </bean>
 </beans>
