@@ -115,13 +115,12 @@
                 <div class="mdui-container">
                     <div class="mdui-typo">
                         <blockquote>
-                            <p>这里可以显示你的发出的简历</p>
+                            <p>这里可以显示你发出的简历的回复</p>
                         </blockquote>
                     </div>
                 </div>
                 <div class="mdui-container">
                     <div class="mdui-panel" mdui-panel>
-                        ${sessionScope.inboxMessages}
                         <%
                             ArrayList<Message> inboxMessages = (ArrayList<Message>) session.getAttribute("inboxMessages");
                             if (inboxMessages != null) {
@@ -217,7 +216,7 @@
                 <div class="mdui-container">
                     <div class="mdui-typo">
                         <blockquote>
-                            <p>这里可以显示你的发出的简历的回复</p>
+                            <p>这里可以显示你的发出的简历</p>
                         </blockquote>
                     </div>
                 </div>

@@ -40,8 +40,12 @@ public class ReceiveMailSSL {
 
     /**
      * 接收邮件
+     * @return
      */
-    public Message[] receive(String folderName) throws Exception {
+    public HashMap<String, Object> receive(String folderName) throws Exception {
+        // 准备一个map，存入Message数组和content数组;
+        HashMap<String, Object> hashMap = new HashMap<>();
+
         // 准备连接服务器的会话信息
         Properties props = new Properties();
         // 协议
@@ -83,31 +87,36 @@ public class ReceiveMailSSL {
 
         // 得到收件箱中的所有邮件,并解析
         Message[] messages = folder.getMessages();
-        parseMessage(messages);
+        String[] contentArr = parseMessage(messages);
         System.out.println("RMSSL messages = " + Arrays.toString(messages));
+        hashMap.put("messages", messages);
+        hashMap.put("contentArr", contentArr);
 
 
         //释放资源
         folder.close(true);
         store.close();
 
-        return messages;
+        return hashMap;
     }
 
     /**
      * 解析邮件
      *
      * @param messages 要解析的邮件列表
+     * @return
      */
-    public static void parseMessage(Message... messages) {
+    public static String[] parseMessage(Message... messages) {
         if (messages == null || messages.length < 1) {
             System.out.println("未找到要解析的邮件!");
         }
+        assert messages != null;
+        String[] contentArr = new String[messages.length];
 
         // 解析所有邮件
-        for (Message message : messages) {
+        for (int i = 0; i < messages.length; ++i) {
             try {
-                MimeMessage msg = (MimeMessage) message;
+                MimeMessage msg = (MimeMessage) messages[i];
                 System.out.println("------------------解析第" + msg.getMessageNumber() + "封邮件-------------------- ");
                 System.out.println("主题: " + getSubject(msg));
                 System.out.println("发件人: " + getFrom(msg));
@@ -125,13 +134,17 @@ public class ReceiveMailSSL {
                 }
                 StringBuffer content = new StringBuffer(30);
                 getMailTextContent(msg, content);
-                System.out.println("邮件正文：" + (content.length() > 100 ? content.substring(0, 100) + "..." : content));
+//                System.out.println("邮件正文：" + (content.length() > 100 ? content.substring(0, 100) + "..." : content));
+                System.out.println("邮件正文：" + content);
+                contentArr[i] = content.toString();
                 System.out.println("------------------第" + msg.getMessageNumber() + "封邮件解析结束-------------------- ");
                 System.out.println();
             } catch (MessagingException | IOException e) {
                 e.printStackTrace();
             }
+
         }
+        return contentArr;
     }
 
     /**

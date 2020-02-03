@@ -38,7 +38,7 @@
     <!-- 邮件已读后更新这条记录 -->
     <update id="updateTime" parameterType="com.resume.pojo.Resume">
         UPDATE resume
-        SET is_read=#{read},
+        SET is_read=#{isRead},
             gmt_modified=now(),
             receive_time=#{receiveTime},
             interview_time=#{interviewTime}
@@ -47,7 +47,7 @@
 
     <!-- 查询一条简历-面试信息 -->
     <select id="getResumeInfo" parameterType="com.resume.pojo.Resume" resultMap="resumeResultMap">
-        SELECT id, username, company, position, send_time, receive_time, interview_time, is_read
+        SELECT id, username, company, position, from_address, to_address, send_time, receive_time, interview_time, is_read
         FROM resume
         WHERE username=#{username} and company=#{company}
     </select>
