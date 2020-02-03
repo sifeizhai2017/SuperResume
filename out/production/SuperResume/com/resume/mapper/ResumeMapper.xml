@@ -51,4 +51,10 @@
         FROM resume
         WHERE username=#{username} and company=#{company}
     </select>
+
+    <select id="getSelectedResumes" parameterType="com.resume.pojo.Resume" resultMap="resumeResultMap">
+        SELECT id, username, company, position, interview_time, is_read
+        FROM resume
+        WHERE interview_time in (${value}, ${value})
+    </select>
 </mapper>

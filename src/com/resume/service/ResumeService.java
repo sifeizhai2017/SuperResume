@@ -2,6 +2,7 @@ package com.resume.service;
 
 import com.resume.pojo.Resume;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,4 +37,12 @@ public interface ResumeService {
      * @return 有/没有
      */
     boolean getResumeExist(Resume resume);
+
+    /**
+     * 查询面试时间范围内的简历
+     * @param startDate 开始日期
+     * @param endDate 结束日期
+     * @return 列表
+     */
+    List<Resume> getSelectedResumes(Date startDate, Date endDate);
 }

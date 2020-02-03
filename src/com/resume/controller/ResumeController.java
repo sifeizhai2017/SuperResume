@@ -5,6 +5,7 @@ import com.resume.pojo.Resume;
 import com.resume.service.ResumeService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.mail.Message;
@@ -12,7 +13,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -29,6 +32,7 @@ public class ResumeController {
      */
     ReceiveMailSSL receiveMail;
     SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm");
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yy-MM-dd");
 
     public ResumeService getResumeService() {
         return resumeService;
@@ -145,6 +149,29 @@ public class ResumeController {
         map.put("sendMessages", sendMessages);
 
         return "redirect:/views/mailsystem.jsp#send";
+    }
+
+    /**
+     * 列出所有日程
+     * @param startDate 开始日期
+     * @param endDate 结束日期
+     * @return 原页面
+     */
+    @RequestMapping("listSchedule")
+    public String listSchedule(@RequestParam String startDate, @RequestParam String endDate
+        , Map<String, Object> map) throws ParseException {
+        System.out.println("startDate = " + startDate);
+        Date formattedStartDate = sdf1.parse(startDate);
+        Date formattedEndDate = sdf1.parse(endDate);
+
+        List<Resume> selectedResumes = resumeService.getSelectedResumes(formattedStartDate, formattedEndDate);
+        if (selectedResumes == null) {
+            map.put("dateErrMsg", "日期大于结束日期，请重新选择");
+        } else {
+            map.put("selectedResumes", selectedResumes);
+        }
+        
+        return "forward:/views/schedule.jsp";
     }
 
     /**

@@ -9,7 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>日程管理</title>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+        request.setAttribute("path", basePath);
+    %>
+    <script src="${path}/mdui/js/mdui.min.js"></script>
+    <link rel="stylesheet" href="${path}/mdui/css/mdui.min.css">
+    <link rel="stylesheet" href="${path}/css/schedule-style.css">
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">
@@ -40,7 +48,6 @@
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
                     <div class="mdui-list-item-content">邮件系统</div>
-
                 </li>
             </a>
             <a href="javascript:">
@@ -65,7 +72,24 @@
     </div>
     <!-- 主要部分 -->
     <div class="page-index">
-
+        <div class="header-section mdui-color-theme">
+            <div class="mc-container mdui-container mdui-clearfix mdui-valign">
+                <p>日程管理</p>
+            </div>
+        </div>
+        <div class="schedule-form-section">
+            <div class="title-section mdui-typo-display-1 mdui-text-color-pink">面试清单</div>
+            <br>
+            <div class="mdui-divider"></div>
+            <br>
+            <!-- 卡片 -->
+            <form action="${path}/resume/listSchedule">
+                <span></span>
+                <label>起始日期：</label><input type="date" name="startDate" required>&nbsp;
+                <label>结束日期：</label><input type="date" name="endDate" required>&nbsp;
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit">提交</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>

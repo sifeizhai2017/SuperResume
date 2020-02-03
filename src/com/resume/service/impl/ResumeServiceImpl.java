@@ -4,6 +4,7 @@ import com.resume.mapper.ResumeMapper;
 import com.resume.pojo.Resume;
 import com.resume.service.ResumeService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,5 +49,15 @@ public class ResumeServiceImpl implements ResumeService {
     @Override
     public boolean getResumeExist(Resume resume) {
         return resumeMapper.getResumeInfo(resume) != null;
+    }
+
+    @Override
+    public List<Resume> getSelectedResumes(Date startDate, Date endDate) {
+        // 如果开始日期大于结束日期，返回一个空的list
+        if (startDate.compareTo(endDate) > 0) {
+            return null;
+        } else {
+            return resumeMapper.getSelectedResumes(startDate, endDate);
+        }
     }
 }
