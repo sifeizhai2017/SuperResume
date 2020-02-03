@@ -21,6 +21,15 @@ public class ReceiveMailSSL {
     public static final String SENT_FOLDER = "Sent Messages";
     private String emailAddr = "958367333@qq.com";
     private String emailPwd = "jfcekilenstjbdjj";
+    private String imapServer = "imap.qq.com";
+
+    public String getImapServer() {
+        return imapServer;
+    }
+
+    public void setImapServer(String imapServer) {
+        this.imapServer = imapServer;
+    }
 
     public String getEmailAddr() {
         return emailAddr;
@@ -50,7 +59,7 @@ public class ReceiveMailSSL {
         Properties props = new Properties();
         // 协议
         props.setProperty("mail.store.protocol", "imap");
-        props.put("mail.imap.host", "imap.qq.com");
+        props.put("mail.imap.host", getImapServer());
         props.put("mail.imap.socketFactory.port", "993");
         props.put("mail.imap.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.imap.auth", "true");
@@ -134,7 +143,6 @@ public class ReceiveMailSSL {
                 }
                 StringBuffer content = new StringBuffer(30);
                 getMailTextContent(msg, content);
-//                System.out.println("邮件正文：" + (content.length() > 100 ? content.substring(0, 100) + "..." : content));
                 System.out.println("邮件正文：" + content);
                 contentArr[i] = content.toString();
                 System.out.println("------------------第" + msg.getMessageNumber() + "封邮件解析结束-------------------- ");

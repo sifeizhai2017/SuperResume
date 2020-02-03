@@ -44,7 +44,7 @@
                     <div class="mdui-list-item-content">首页</div>
                 </li>
             </a>
-            <a href="${path}/views/mailsystem.jsp">
+            <a href="../resume/updateInbox">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">account_balance</i>
                     <div class="mdui-list-item-content">邮件系统</div>
@@ -83,7 +83,7 @@
                 <p class="article-title mdui-text-color-pink mdui-typo-display-1">简历管理</p>
                 <div class="article-content">
                     <div><p class="mdui-typo-subheading-opacity">简历管理中包含一个简单的邮件系统，您能够在这里发送简历邮件并收到企业的回复</p></div>
-                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
+                    <a href="schedule.jsp"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button></a>
                 </div>
                 <br><br>
                 <div class="mdui-divider"></div>
@@ -92,7 +92,7 @@
                 <p class="article-title mdui-text-color-pink mdui-typo-display-1">日程管理</p>
                 <div class="article-content">
                     <div><p class="mdui-typo-subheading-opacity">日程管理记录您发出邮件以及企业的回复</p></div>
-                    <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button>
+                    <a href="mailsystem.jsp"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">点击进入</button></a>
                 </div>
                 <br><br>
                 <div class="mdui-divider"></div>

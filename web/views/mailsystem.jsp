@@ -14,13 +14,13 @@
   User: danny
   Date: 2020/1/30
   Time: 14:23
-  Desc: markdown简历生成器
+  Desc: 邮件系统
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>邮件系统</title>
     <%
         String path = request.getContextPath();
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
@@ -55,7 +55,7 @@
                     <div class="mdui-list-item-content">首页</div>
                 </li>
             </a>
-            <a href="${path}/views/mailsystem.jsp">
+            <a href="../resume/updateInbox">
                 <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
                     <i class="mdui-list-item-icon mdui-icon material-icons  mdui-text-color-theme">account_balance</i>
                     <div class="mdui-list-item-content">邮件系统</div>

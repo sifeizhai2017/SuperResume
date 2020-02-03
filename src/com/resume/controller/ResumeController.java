@@ -24,6 +24,9 @@ import java.util.*;
 @SessionAttributes(value = {"inboxMessages", "sendMessages"}, types = {ArrayList.class})
 public class ResumeController {
     ResumeService resumeService;
+    /**
+     * todo: 建立一个方法，从数据库中获取邮箱密码等，并将其复制给receiveMail中的属性 解决日期：2020-02-04
+     */
     ReceiveMailSSL receiveMail;
     SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm");
 
@@ -131,7 +134,11 @@ public class ResumeController {
                 sendMessages.add(message);
                 // 将你发出去的这条简历写入数据库中
                 Resume resume = this.messageToResume(message, username);
-                resumeService.insertResume(resume);
+                Resume resumeForQuery = new Resume(username, resume.getCompany());
+                if (!resumeService.getResumeExist(resume)) {
+                    // 只有在这条记录不存在的情况下才加入
+                    resumeService.insertResume(resume);
+                }
             }
         }
         System.out.println("sendMessages = " + sendMessages);
