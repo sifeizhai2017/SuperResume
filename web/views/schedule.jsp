@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.resume.pojo.Resume" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %><%--
   Created by IntelliJ IDEA.
   User: danny
   Date: 2020/2/3
@@ -87,8 +89,43 @@
                 <span></span>
                 <label>起始日期：</label><input type="date" name="startDate" required>&nbsp;
                 <label>结束日期：</label><input type="date" name="endDate" required>&nbsp;
-                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right" type="submit">提交</button>
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right"
+                        type="submit">提交
+                </button>
             </form>
+            <br>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table mdui-table-hoverable">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>公司</th>
+                        <th>职位</th>
+                        <th>面试时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- 显示信息 -->
+                    <%
+                        ArrayList<Resume> selectedResumes = (ArrayList<Resume>) session.getAttribute("selectedResumes");
+                        if (selectedResumes != null) {
+                            Iterator<Resume> resumeIterator = selectedResumes.iterator();
+                            while (resumeIterator.hasNext()) {
+                                Resume nextResume = resumeIterator.next();
+                    %>
+                        <tr>
+                            <td><%=nextResume.getId()%></td>
+                            <td><%=nextResume.getCompany()%></td>
+                            <td><%=nextResume.getPosition()%></td>
+                            <td><%=nextResume.getInterviewTime()%></td>
+                        </tr>
+                    <%
+                            }
+                        }
+                    %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

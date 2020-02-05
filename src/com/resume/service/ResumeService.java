@@ -2,6 +2,8 @@ package com.resume.service;
 
 import com.resume.pojo.Resume;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -44,5 +46,5 @@ public interface ResumeService {
      * @param endDate 结束日期
      * @return 列表
      */
-    List<Resume> getSelectedResumes(Date startDate, Date endDate);
+    ArrayList<Resume> getSelectedResumes(Date startDate, Date endDate);
 }

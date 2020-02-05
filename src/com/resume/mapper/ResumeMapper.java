@@ -3,6 +3,7 @@ package com.resume.mapper;
 import com.resume.pojo.Resume;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public interface ResumeMapper {
      *
      * @param startDate 开始日期
      * @param endDate   结束日期
-     * @return
+     * @return list
      */
-    List<Resume> getSelectedResumes(@Param(value = "startDate") Date startDate, @Param(value = "endDate") Date endDate);
+    ArrayList<Resume> getSelectedResumes(@Param(value = "startDate") Date startDate, @Param(value = "endDate") Date endDate);
 }

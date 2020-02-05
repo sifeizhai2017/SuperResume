@@ -24,7 +24,7 @@ import java.util.*;
  */
 @Component
 @RequestMapping(value = "resume")
-@SessionAttributes(value = {"inboxMessages", "sendMessages"}, types = {ArrayList.class})
+@SessionAttributes(value = {"inboxMessages", "sendMessages", "selectedResumes"}, types = {ArrayList.class})
 public class ResumeController {
     ResumeService resumeService;
     /**

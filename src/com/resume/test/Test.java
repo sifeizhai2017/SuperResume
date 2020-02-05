@@ -38,15 +38,16 @@ public class Test {
 //        resume.setRead(false);
 //        resumeService.insertResume(resume);
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
 //        userMapper.insertUser(new User("eddie", "111111"));
 
-        ResumeMapper resumeMapper = (ResumeMapper) context.getBean("resumeMapper");
-        Resume resume = new Resume();
-        resume.setUsername("danny");
-        resume.setCompany("ms");
-        Resume resumeInfo = resumeMapper.getResumeInfo(resume);
-        System.out.println("resumeInfo = " + resumeInfo);
+//        ResumeMapper resumeMapper = (ResumeMapper) context.getBean("resumeMapper");
+//        Resume resume = new Resume();
+//        resume.setUsername("danny");
+//        resume.setCompany("ms");
+//        Resume resumeInfo = resumeMapper.getResumeInfo(resume);
+//        System.out.println("resumeInfo = " + resumeInfo);
+
     }
 }

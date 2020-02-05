@@ -52,9 +52,10 @@
         WHERE username=#{username} and company=#{company}
     </select>
 
+    <!-- 查询符合条件的信息 -->
     <select id="getSelectedResumes" resultMap="resumeResultMap">
-        SELECT id, username, company, position, interview_time, is_read
+        SELECT id, username, company, position, interview_time
         FROM resume
-        WHERE interview_time in (#{startDate}, #{endDate})
+        WHERE interview_time BETWEEN #{startDate} AND #{endDate}
     </select>
 </mapper>
