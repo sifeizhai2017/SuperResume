@@ -41,8 +41,8 @@
         <img src="${path}/img/user-bg.png" alt="">
         <ul class="mdui-list">
             <a href="${path}/views/index.jsp">
-                <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">home</i>
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
                     <div class="mdui-list-item-content">首页</div>
                 </li>
             </a>
@@ -52,19 +52,19 @@
                     <div class="mdui-list-item-content">邮件系统</div>
                 </li>
             </a>
-            <a href="javascript:">
-                <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+            <a href="${path}/views/schedule.jsp">
+                <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">date_range</i>
                     <div class="mdui-list-item-content">日程管理</div>
                 </li>
             </a>
-            <a href="javascript:">
+            <a href="${path}/views/guide.jsp">
                 <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                    <i class="mdui-list-item-icon mdui-icon material-icons">web</i>
                     <div class="mdui-list-item-content">简历生成</div>
                 </li>
             </a>
-            <a href="${path}/views/settings.jsp">
+            <a href="../user/getUserFromSession">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
                     <div class="mdui-list-item-content">设置</div>

@@ -27,20 +27,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    /**
-     * 根据用户名获取用户
-     *
-     * @param map 存储attribute
-     * @return 跳转页面
-     */
-    @RequestMapping(value = "getUser", method = RequestMethod.POST)
-    public String getUserByUsername(String username, Map<String, Object> map) {
-        System.out.println("this.userService = " + this.userService);
+    @RequestMapping(value = "getUserFromSession")
+    public String getUserFromSession(Map<String, Object> map, HttpSession session) {
+        String username = (String) session.getAttribute("username");
         User user = userService.getUserByUsername(username);
         System.out.println("user = " + user);
         map.put("user", user);
 
-        return "/views/success.jsp";
+        return "forward:/views/settings.jsp";
     }
 
     /**

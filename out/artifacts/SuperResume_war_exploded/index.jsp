@@ -18,10 +18,10 @@
     <script src="${path}/mdui/js/mdui.min.js"></script>
     <link rel="stylesheet" href="${path}/mdui/css/mdui.min.css">
     <link rel="stylesheet" href="${path}/css/index-style.css">
-<%--    <link rel="stylesheet"--%>
-<%--          href="https://www.mdui.org/static/home/default/dist/css/app.0ffb3331a8eb5d052581c4b8cf5e1a70.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="https://www.mdui.org//static/home/default/dist/css/vendor.57f492fe4d88c7538803b152fe84a7ca.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="https://www.mdui.org/static/home/default/dist/css/app.0ffb3331a8eb5d052581c4b8cf5e1a70.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="https://www.mdui.org//static/home/default/dist/css/vendor.57f492fe4d88c7538803b152fe84a7ca.css">--%>
 </head>
 <body class="mdui-loaded mdui-drawer-body-left">
 <div class="mdui-appbar-with-toolbar mdui-theme-accent-pink mdui-theme-primary-indigo">
@@ -43,14 +43,18 @@
     </div>
     <div class="mc-drawer mdui-drawer mdui-drawer-open mdui-shadow-10">
         <ul class="mdui-list">
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
-                <div class="mdui-list-item-content">登陆</div>
-            </li>
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
-                <div class="mdui-list-item-content">注册</div>
-            </li>
+            <a href="${path}/login.jsp">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+                    <div class="mdui-list-item-content">登陆</div>
+                </li>
+            </a>
+            <a href="${path}/register.jsp">
+                <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">group_add</i>
+                    <div class="mdui-list-item-content">注册</div>
+                </li>
+            </a>
         </ul>
     </div>
     <div class="page-index">

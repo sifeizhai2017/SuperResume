@@ -49,19 +49,19 @@
                     <div class="mdui-list-item-content">邮件系统</div>
                 </li>
             </a>
-            <a href="javascript:">
+            <a href="${path}/views/schedule.jsp">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
                     <div class="mdui-list-item-content">日程管理</div>
                 </li>
             </a>
-            <a href="javascript:">
+            <a href="${path}/views/guide.jsp">
                 <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                    <i class="mdui-list-item-icon mdui-icon material-icons">web</i>
                     <div class="mdui-list-item-content">简历生成</div>
                 </li>
             </a>
-            <a href="${path}/views/settings.jsp">
+            <a href="../user/getUserFromSession">
                 <li class="mdui-list-item mdui-ripple mdui-text-color-theme mdui-list-item-active">
                     <i class="mdui-list-item-icon mdui-icon material-icons  mdui-text-color-theme">settings</i>
                     <div class="mdui-list-item-content">设置</div>
@@ -78,27 +78,28 @@
         <div class="password-settings">
             <div class="mdui-container">
                 <div class="mdui-row mdui-clearfix">
-                    <!-- 邮箱账号设置 -->
-                    <div class="mail-account-section mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-12 mdui-clearfix">
+                    <!-- 账号信息显示 -->
+                    <div class="account-info-section mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-12">
                         <div class="mdui-card">
-                            <div class="mdui-chip">
-                                <span class="mdui-chip-icon mdui-color-indigo">E</span>
-                                <span class="mdui-chip-title">邮箱账户设置</span>
+                            <div class="mdui-card-media">
+                                <img src="../img/userinfo-bg.jpg"/>
+                                <div class="mdui-card-media-covered">
+                                    <div class="mdui-card-primary">
+                                        <div class="mdui-card-primary-title">用户信息</div>
+                                        <div class="mdui-card-primary-subtitle">User Info</div>
+                                        <p>用户名：${sessionScope.username}</p>
+                                        <p>邮箱地址：${requestScope.user.emailAddr}</p>
+                                        <p>IMAP服务器：${requestScope.user.imapServer}</p>
+                                        <p>SMTP服务器：${requestScope.user.smtpServer}</p>
+                                        <p>POP3服务器：${requestScope.user.pop3Server}</p>
+                                    </div>
+                                </div>
                             </div>
-                            ${requestScope.emailMsg}
-                            <form class="mdui-card-content" action="../user/updateEmail" method="post">
-                                <div class="mdui-textfield mdui-textfield-floating-label">
-                                    <label class="mdui-textfield-label">邮箱账号</label>
-                                    <input class="mdui-textfield-input" type="email" name="emailAddr"/>
-                                </div>
-                                <div class="mdui-textfield mdui-textfield-floating-label">
-                                    <label class="mdui-textfield-label">邮箱密码</label>
-                                    <input class="mdui-textfield-input" type="password" name="emailPwd"/>
-                                </div>
-                                <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
-                                        type="submit">提交
-                                </button>
-                            </form>
+                            <div class="mdui-card-actions">
+                                <a href="../user/getUserFromSession">
+                                <button class="mdui-btn mdui-ripple">刷新</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- 账户设置 -->
@@ -130,10 +131,10 @@
                     </div>
                 </div>
                 <br>
-                <div class="mdui-row">
+                <div class="mdui-row second-row">
                     <!-- 邮箱服务器设置 -->
                     <div class="server-section">
-                        <div class="mdui-card">
+                        <div class="mdui-card mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-12 mdui-clearfix">
                             <div class="mdui-chip">
                                 <span class="mdui-chip-icon mdui-color-indigo">A</span>
                                 <span class="mdui-chip-title">邮箱服务器设置</span>
@@ -151,6 +152,29 @@
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <label class="mdui-textfield-label">SMTP服务器</label>
                                     <input class="mdui-textfield-input" type="text" name="smtpServer"/>
+                                </div>
+                                <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
+                                        type="submit">提交
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 邮箱账户设置 -->
+                    <div class="mail-account-section mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-12 mdui-clearfix">
+                        <div class="mdui-card">
+                            <div class="mdui-chip">
+                                <span class="mdui-chip-icon mdui-color-indigo">E</span>
+                                <span class="mdui-chip-title">邮箱账户设置</span>
+                            </div>
+                            ${requestScope.emailMsg}
+                            <form class="mdui-card-content" action="../user/updateEmail" method="post">
+                                <div class="mdui-textfield mdui-textfield-floating-label">
+                                    <label class="mdui-textfield-label">邮箱账号</label>
+                                    <input class="mdui-textfield-input" type="email" name="emailAddr"/>
+                                </div>
+                                <div class="mdui-textfield mdui-textfield-floating-label">
+                                    <label class="mdui-textfield-label">邮箱密码</label>
+                                    <input class="mdui-textfield-input" type="password" name="emailPwd"/>
                                 </div>
                                 <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
                                         type="submit">提交

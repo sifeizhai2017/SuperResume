@@ -31,8 +31,8 @@ public class ResumeController {
      * todo: 建立一个方法，从数据库中获取邮箱密码等，并将其复制给receiveMail中的属性 解决日期：2020-02-04
      */
     ReceiveMailSSL receiveMail;
-    SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm");
-    SimpleDateFormat sdf1 = new SimpleDateFormat("yy-MM-dd");
+    SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm", Locale.ROOT);
+    SimpleDateFormat sdf1 = new SimpleDateFormat("yy-MM-dd", Locale.ROOT);
 
     public ResumeService getResumeService() {
         return resumeService;

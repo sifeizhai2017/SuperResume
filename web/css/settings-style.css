@@ -17,6 +17,10 @@
     height: 200px;
 }
 
+.second-row {
+    margin-bottom: 100px;
+}
+
 .breadcrumb-section .mc-container {
     display: flex;
     margin-top: 40px;
@@ -27,7 +31,7 @@
     margin-top: 20px;
 }
 
-.page-index .password-settings .mdui-chip{
+.page-index .password-settings .mdui-chip {
     margin-top: 10px;
     margin-left: 10px;
 }
@@ -36,6 +40,10 @@
     .account-section {
         margin-top: 10px;
     }
+}
+
+.account-info-section img {
+    height: 330px !important;
 }
 
 .password-settings .server-section {

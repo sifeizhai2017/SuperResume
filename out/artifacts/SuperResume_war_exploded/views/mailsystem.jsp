@@ -63,17 +63,17 @@
             </a>
             <a href="${path}/views/schedule.jsp">
                 <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
+                    <i class="mdui-list-item-icon mdui-icon material-icons">web</i>
                     <div class="mdui-list-item-content">日程管理</div>
                 </li>
             </a>
-            <a href="javascript:">
+            <a href="${path}/views/guide.jsp">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">date_range</i>
                     <div class="mdui-list-item-content">简历生成</div>
                 </li>
             </a>
-            <a href="${path}/views/settings.jsp">
+            <a href="../user/getUserFromSession">
                 <li class="mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">settings</i>
                     <div class="mdui-list-item-content">设置</div>
