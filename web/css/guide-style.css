@@ -1,0 +1,13 @@
+.mc-drawer a {
+    display: block;
+}
+
+.mc-drawer img {
+    width: 100%;
+}
+
+.page-index {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 40px;
+}

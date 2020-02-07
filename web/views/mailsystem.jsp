@@ -38,7 +38,7 @@
                     class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"><i class="mdui-icon material-icons">menu</i>
             </button>
             <a class="mdui-typo-headline" href="${path}">超级简历</a>
-            <div class="mdui-typo-title mdui-hidden-xs-down">首页</div>
+            <div class="mdui-typo-title mdui-hidden-xs-down">邮件系统</div>
             <div class="mdui-toolbar-spacer"></div>
             <img class="mdui-card-header-avatar mdui-img-circle" src="${path}/img/user-bg.jpg"/>
             <div class="mc-login-btn mdui-btn mdui-btn-dense mdui-ripple mdui-ripple-white">
