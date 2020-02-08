@@ -3,6 +3,9 @@ package com.resume.controller;
 import com.resume.mail.ReceiveMailSSL;
 import com.resume.pojo.Resume;
 import com.resume.service.ResumeService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,11 +14,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -239,6 +240,20 @@ public class ResumeController {
 
         // todo：跳转到文件下载页面
         return "redirect:/views/success.jsp";
+    }
+
+    @RequestMapping("testHttpMessageDown")
+    public ResponseEntity<byte[]> download(HttpServletRequest request) throws IOException {
+        File file = new File("/Users/danny/Desktop/test.md");
+        byte[] body = null;
+        InputStream is = new FileInputStream(file);
+        body = new byte[is.available()];
+        is.read(body);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attchement;filename=" + file.getName());
+        HttpStatus statusCode = HttpStatus.OK;
+        ResponseEntity<byte[]> entity = new ResponseEntity<byte[]>(body, headers, statusCode);
+        return entity;
     }
 
     /**
