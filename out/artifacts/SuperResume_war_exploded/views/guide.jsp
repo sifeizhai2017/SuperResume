@@ -85,7 +85,7 @@
             <hr/>
         </div>
         <div class="form-container">
-            <form action="resume/resumeGuide">
+            <form action="../resume/resumeGuide">
                 <div class="mdui-panel mdui-panel-gaplessY767Y8UYG" mdui-panel>
                     <div class="mdui-panel-item mdui-panel-item-open">
                         <div class="mdui-panel-item-header">
@@ -96,15 +96,15 @@
                             <p>HR会打印你的简历，用于在面试的时候联系，所以联系方式放到最上边会比较方便</p>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">email</i>
-                                <input class="mdui-textfield-input" type="email" placeholder="Email"/>
+                                <input class="mdui-textfield-input" name="email" type="email" placeholder="Email"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">phone_android</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="电话号码"/>
+                                <input class="mdui-textfield-input" name="phone" type="text" placeholder="电话号码"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">chat</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="QQ/微信"/>
+                                <input class="mdui-textfield-input" name="sms" type="text" placeholder="QQ/微信"/>
                                 <div class="mdui-textfield-helper">提供一个通过网络可以联系到你的方式</div>
                             </div>
                         </div>
@@ -141,23 +141,23 @@
                                 <div class="mdui-col-lg-6">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">school</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="学历"/>
+                                        <input class="mdui-textfield-input" name="edu" type="text" placeholder="学历"/>
                                     </div>
                                 </div>
                                 <div class="mdui-col-lg-6">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">school</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="学校"/>
+                                        <input class="mdui-textfield-input" name="school" type="text" placeholder="学校"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">work</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="期望职位"/>
+                                <input class="mdui-textfield-input" name="position" type="text" placeholder="期望职位"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">attach_money</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="期望薪资"/>
+                                <input class="mdui-textfield-input" name="salary" type="text" placeholder="期望薪资"/>
                             </div>
                         </div>
                     </div>
@@ -171,27 +171,27 @@
                                 <div class="mdui-col-lg-4">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">business_center</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="ABC公司"/>
+                                        <input class="mdui-textfield-input" name="companyA" type="text" placeholder="ABC公司"/>
                                     </div>
                                 </div>
                                 <div class="mdui-col-lg-8">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">timelapse</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="（2010.1~2012.2）"/>
+                                        <input class="mdui-textfield-input" name="timeA" type="text" placeholder="（2010.1~2012.2）"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdui-row">
                                 <div class="mdui-textfield">
                                     <i class="mdui-icon material-icons">assignment</i>
-                                    <input class="mdui-textfield-input" type="text" placeholder="DEF项目"/>
+                                    <input class="mdui-textfield-input" name="projectA" type="text" placeholder="DEF项目"/>
                                 </div>
                             </div>
                             <div class="mdui-row">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <i class="mdui-icon material-icons">text_fields</i>
                                     <label class="mdui-textfield-label">我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</label>
-                                    <textarea class="mdui-textfield-input" maxlength="200"></textarea>
+                                    <textarea class="mdui-textfield-input" name="descA" maxlength="200"></textarea>
                                 </div>
                             </div>
                             <div class="mdui-typo">
@@ -201,27 +201,27 @@
                                 <div class="mdui-col-lg-4">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">business_center</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="ABC公司"/>
+                                        <input class="mdui-textfield-input" name="companyB" type="text" placeholder="ABC公司"/>
                                     </div>
                                 </div>
                                 <div class="mdui-col-lg-8">
                                     <div class="mdui-textfield">
                                         <i class="mdui-icon material-icons">timelapse</i>
-                                        <input class="mdui-textfield-input" type="text" placeholder="（2010.1~2012.2）"/>
+                                        <input class="mdui-textfield-input" name="timeB" type="text" placeholder="（2010.1~2012.2）"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdui-row">
                                 <div class="mdui-textfield">
                                     <i class="mdui-icon material-icons">assignment</i>
-                                    <input class="mdui-textfield-input" type="text" placeholder="DEF项目"/>
+                                    <input class="mdui-textfield-input" name="projectB" type="text" placeholder="DEF项目"/>
                                 </div>
                             </div>
                             <div class="mdui-row">
                                 <div class="mdui-textfield mdui-textfield-floating-label">
                                     <i class="mdui-icon material-icons">text_fields</i>
                                     <label class="mdui-textfield-label">我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。</label>
-                                    <textarea class="mdui-textfield-input" maxlength="200"></textarea>
+                                    <textarea class="mdui-textfield-input" name="descB" maxlength="200"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -234,20 +234,20 @@
                         <div class="mdui-panel-item-body">
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">book</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="证书"/>
+                                <input class="mdui-textfield-input" name="certificateA" type="text" placeholder="证书"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">book</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="证书"/>
+                                <input class="mdui-textfield-input" name="certificateB" type="text" placeholder="证书"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">book</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="证书"/>
+                                <input class="mdui-textfield-input" name="certificateC" type="text" placeholder="证书"/>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- 没考虑好怎么用，先放在这里 -->
+                <!-- 提交 -->
                 <button class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink" type="submit">
                     <i class="mdui-icon material-icons">check</i>
                 </button>

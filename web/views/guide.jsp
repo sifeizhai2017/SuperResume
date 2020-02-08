@@ -85,7 +85,7 @@
             <hr/>
         </div>
         <div class="form-container">
-            <form action="resume/resumeGuide">
+            <form action="../resume/resumeGuide">
                 <div class="mdui-panel mdui-panel-gaplessY767Y8UYG" mdui-panel>
                     <div class="mdui-panel-item mdui-panel-item-open">
                         <div class="mdui-panel-item-header">
@@ -96,15 +96,15 @@
                             <p>HR会打印你的简历，用于在面试的时候联系，所以联系方式放到最上边会比较方便</p>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">email</i>
-                                <input class="mdui-textfield-input" type="email" placeholder="Email"/>
+                                <input class="mdui-textfield-input" name="email" type="email" placeholder="Email"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">phone_android</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="电话号码"/>
+                                <input class="mdui-textfield-input" name="phone" type="text" placeholder="电话号码"/>
                             </div>
                             <div class="mdui-textfield">
                                 <i class="mdui-icon material-icons">chat</i>
-                                <input class="mdui-textfield-input" type="text" placeholder="QQ/微信"/>
+                                <input class="mdui-textfield-input" name="sms" type="text" placeholder="QQ/微信"/>
                                 <div class="mdui-textfield-helper">提供一个通过网络可以联系到你的方式</div>
                             </div>
                         </div>

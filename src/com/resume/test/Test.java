@@ -24,12 +24,17 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) throws IOException {
-//        File file = new File("/Users/danny/Desktop/test.md");
-//        FileOutputStream fos = new FileOutputStream(file);
-//        String ttt = "# this is a test";
-//        byte[] bytes = ttt.getBytes();
-//        fos.write(bytes);
-//        fos.close();
+        File file = new File("/Users/danny/Desktop/test.md");
+        FileOutputStream fos = new FileOutputStream(file);
+        StringBuilder sb = new StringBuilder(1000);
+        sb.append("# 个人简历\n## 联系方式\n")
+                .append(" - 手机：").append("2222").append("\n")
+                .append(" - 电子邮箱：").append("3333").append("\n")
+                .append(" - 微信/QQ：").append("4444").append("\n")
+                .append("## 个人信息");
+        byte[] bytes = sb.toString().getBytes();
+        fos.write(bytes);
+        fos.close();
 //        ResumeServiceImpl resumeService = new ResumeServiceImpl();
 //        Resume resume = new Resume();
 //        resume.setUsername("danny");

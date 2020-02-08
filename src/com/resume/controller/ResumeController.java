@@ -12,10 +12,12 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -153,13 +155,14 @@ public class ResumeController {
 
     /**
      * 列出所有日程
+     *
      * @param startDate 开始日期
-     * @param endDate 结束日期
+     * @param endDate   结束日期
      * @return 原页面
      */
     @RequestMapping("listSchedule")
     public String listSchedule(@RequestParam String startDate, @RequestParam String endDate
-        , Map<String, Object> map) throws ParseException {
+            , Map<String, Object> map) throws ParseException {
         System.out.println("startDate = " + startDate);
         Date formattedStartDate = sdf1.parse(startDate);
         Date formattedEndDate = sdf1.parse(endDate);
@@ -170,8 +173,72 @@ public class ResumeController {
         } else {
             map.put("selectedResumes", selectedResumes);
         }
-        
+
         return "forward:/views/schedule.jsp";
+    }
+
+    @RequestMapping("resumeGuide")
+    public String resumeGuide(@RequestParam String email, @RequestParam String phone, @RequestParam String sms,
+                              @RequestParam String name, @RequestParam String sex, @RequestParam String birth,
+                              @RequestParam String edu, @RequestParam String school, @RequestParam String position,
+                              @RequestParam String salary, @RequestParam String companyA, @RequestParam String timeA,
+                              @RequestParam String projectA, @RequestParam String descA, @RequestParam String companyB,
+                              @RequestParam String timeB, @RequestParam String projectB, @RequestParam String descB,
+                              @RequestParam String certificateA, @RequestParam String certificateB,
+                              @RequestParam String certificateC) {
+        // 填充文字
+        StringBuilder sb = new StringBuilder(1000);
+        sb.append("# 个人简历\n## 联系方式\n")
+                .append(" - 手机：").append(phone).append("\n")
+                .append(" - 电子邮箱：").append(email).append("\n")
+                .append(" - 微信/QQ：").append(sms).append("\n")
+                .append("## 个人信息\n")
+                .append(" - ").append(name).append("\\").append(sex).append("\\").append(birth).append("\n")
+                .append(" - ").append(edu).append("\\").append(school).append("\n")
+                .append(" - 期望职位").append(position).append("\n")
+                .append(" - 期望薪资").append(salary).append("\n");
+
+        if (companyA != null && timeA != null && projectA != null && descA != null) {
+            sb.append("## 工作经历\n").append("### ").append(companyA).append("\t(").append(timeA).append(")\n")
+                    .append("#### ").append(projectA).append("\n")
+                    .append(descA).append("\n");
+        }
+        if (companyB != null && timeB != null && projectB != null && descB != null) {
+            sb.append("### ").append(companyB).append("\t(").append(timeB).append(")\n")
+                    .append("#### ").append(projectB).append("\n")
+                    .append(descB).append("\n");
+        }
+
+        if (certificateA != null) {
+            sb.append("## 个人证书\n").append(" - ").append(certificateA).append("\n");
+        }
+        if (certificateB != null) {
+            sb.append(" - ").append(certificateB).append("\n");
+        }
+        if (certificateC != null) {
+            sb.append(" - ").append(certificateC).append("\n");
+        }
+
+        File file = new File("/Users/danny/Desktop/test.md");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            var bytes = sb.toString().getBytes();
+            fos.write(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // todo：跳转到文件下载页面
+        return "redirect:/views/success.jsp";
     }
 
     /**
