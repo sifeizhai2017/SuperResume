@@ -73,11 +73,115 @@
     </div>
     <div class="page-index">
         <div class="guide-container">
-            <div class="mdui-typo-display-2 mdui-text-color-pink"><strong>生成成功</strong></div>
+            <div class="mdui-typo-display-1 mdui-text-color-theme">生成成功</div>
+            <br>
+            <div class="mdui-divider"></div>
+            <br>
+            <div class="mdui-typo-subheading-opacity"><a href="../resume/testHttpMessageDown">点击此处</a>可以下载</div>
         </div>
-        <br>
-        <div class="mdui-typo-headline"><a href="../resume/testHttpMessageDown">点击此处</a>可以下载</div>
-        ${requestScope.l}---
+        <br><br><br>
+        <div class="advice-container">
+            <div class="mdui-typo-display-1 mdui-text-color-pink">是否需要招聘网站？</div>
+            <br>
+            <div class="mdui-divider"></div>
+            <br>
+            <div class="mdui-row">
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/shangzhao.png"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/51job.jpg"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/58tongcheng.jpg"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/boss.png"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mdui-row">
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/chinahr.jpg"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/lagou.jpg"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-lg-3">
+                    <div class="mdui-card">
+                        <div class="mdui-card-media">
+                            <img src="../img/website-logo/zhilian.jpg"/>
+                            <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+                            </div>
+                        </div>
+                        <div class="mdui-card-actions">
+                            <button class="mdui-btn mdui-ripple">action 1</button>
+                            <button class="mdui-btn mdui-ripple">action 2</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 </body>
