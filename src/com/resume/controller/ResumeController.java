@@ -186,7 +186,7 @@ public class ResumeController {
                               @RequestParam String projectA, @RequestParam String descA, @RequestParam String companyB,
                               @RequestParam String timeB, @RequestParam String projectB, @RequestParam String descB,
                               @RequestParam String certificateA, @RequestParam String certificateB,
-                              @RequestParam String certificateC) {
+                              @RequestParam String certificateC, HttpSession session) {
         // 填充文字
         StringBuilder sb = new StringBuilder(1000);
         sb.append("# 个人简历\n## 联系方式\n")
@@ -220,7 +220,9 @@ public class ResumeController {
             sb.append(" - ").append(certificateC).append("\n");
         }
 
-        File file = new File("/Users/danny/Desktop/test.md");
+        long l = System.currentTimeMillis();
+        System.out.println("--------l = " + l);
+        File file = new File("/Users/danny/Desktop/resume-" + l + ".md");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file);
@@ -238,13 +240,17 @@ public class ResumeController {
             }
         }
 
-        // todo：跳转到文件下载页面
-        return "redirect:/views/success.jsp";
+        session.setAttribute("l", l);
+        return "forward:/views/success.jsp";
     }
 
     @RequestMapping("testHttpMessageDown")
-    public ResponseEntity<byte[]> download(HttpServletRequest request) throws IOException {
-        File file = new File("/Users/danny/Desktop/test.md");
+    public ResponseEntity<byte[]> download(HttpServletRequest request, HttpSession session) throws IOException {
+        long l = (long) session.getAttribute("l");
+        System.out.println("+++++++l = " + l);
+        String pathName = "/Users/danny/Desktop/resume-" + l + ".md";
+        System.out.println("pathName = " + pathName);
+        File file = new File(pathName);
         byte[] body = null;
         InputStream is = new FileInputStream(file);
         body = new byte[is.available()];

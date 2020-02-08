@@ -85,7 +85,7 @@
             <hr/>
         </div>
         <div class="form-container">
-            <form action="../resume/resumeGuide">
+            <form action="../resume/resumeGuide" method="post">
                 <div class="mdui-panel mdui-panel-gaplessY767Y8UYG" mdui-panel>
                     <div class="mdui-panel-item mdui-panel-item-open">
                         <div class="mdui-panel-item-header">
