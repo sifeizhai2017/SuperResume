@@ -68,5 +68,6 @@
     <bean id="resumeController" class="com.resume.controller.ResumeController">
         <property name="resumeService" ref="resumeService"/>
         <property name="receiveMail" ref="receiveMail"/>
+        <property name="userService" ref="userService"/>
     </bean>
 </beans>

@@ -2,7 +2,9 @@ package com.resume.controller;
 
 import com.resume.mail.ReceiveMailSSL;
 import com.resume.pojo.Resume;
+import com.resume.pojo.User;
 import com.resume.service.ResumeService;
+import com.resume.service.UserService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,16 @@ public class ResumeController {
         this.receiveMail = receiveMail;
     }
 
+    UserService userService;
+
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     /**
      * 更新收件箱的内容
      *
@@ -61,6 +73,7 @@ public class ResumeController {
     @RequestMapping(value = "updateInbox")
     public String updateInbox(Map<String, Object> map, HttpSession session) throws Exception {
         String username = (String) session.getAttribute("username");
+        this.setMailInfo(username);
         HashMap<String, Object> receive = receiveMail.receive(ReceiveMailSSL.INBOX_FOLDER);
         Message[] messages = (Message[]) receive.get("messages");
         String[] contentArr = (String[]) receive.get("contentArr");
@@ -129,6 +142,7 @@ public class ResumeController {
     @RequestMapping(value = "updateSend")
     public String updateSend(Map<String, Object> map, HttpSession session) throws Exception {
         String username = (String) session.getAttribute("username");
+        this.setMailInfo(username);
         HashMap<String, Object> receive = receiveMail.receive(ReceiveMailSSL.SENT_FOLDER);
         Message[] messages = (Message[]) receive.get("messages");
         String[] contentArr = (String[]) receive.get("contentArr");
@@ -178,6 +192,12 @@ public class ResumeController {
         return "forward:/views/schedule.jsp";
     }
 
+    /**
+     * 创建简历
+     *
+     * @RequestParam 表单项目
+     * @return 下载页面
+     */
     @RequestMapping("resumeGuide")
     public String resumeGuide(@RequestParam String email, @RequestParam String phone, @RequestParam String sms,
                               @RequestParam String name, @RequestParam String sex, @RequestParam String birth,
@@ -288,5 +308,16 @@ public class ResumeController {
             e.printStackTrace();
         }
         return resume;
+    }
+
+    /**
+     * 设置邮件服务器信息
+     * @param username 用户名
+     */
+    public void setMailInfo(String username) {
+        User user = userService.getUserByUsername(username);
+        receiveMail.setEmailAddr(user.getEmailAddr());
+        receiveMail.setEmailPwd(user.getEmailPassword());
+        receiveMail.setImapServer(user.getImapServer());
     }
 }
